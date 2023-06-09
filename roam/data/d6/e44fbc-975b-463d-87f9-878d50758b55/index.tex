@@ -55,21 +55,29 @@ can be related through
   a_{β} = ∑_{m} U_{βm} c_{m},
 \end{equation}
 where \(U\) is a not necessarily square matrix that obeys the
-unitarity relation \(U U^† = \id\).
-Transitioning into a rotating frame with respect to \(H_{0}\) and
-employing the rotating wave approximation removes the time dependence
+unitarity relation \(U U^† = \id\).  Transitioning into a rotating
+frame with respect to \(H_{0}\) and employing the rotating wave
+approximation removes all but the slowest-oscillating rotating terms
 from the interaction
 \begin{equation}
   \label{eq:12}
   \tilde{c}(t)_{m} = c_{m}(t)\eu^{\iu ω^{0}_{m}t}  \implies H_{A} \to \tilde{H}_{A}=
   ∑_{mn}V_{mn}(t) \eu^{-\iu t (ω^{0}_{n}-ω^{0}_{m})}
-  \tilde{c}_{m}^†\tilde{c}_{n} \approx ∑_{mn}V^{0}_{mn} \tilde{c}_{m}^†\tilde{c}_{n}.
+  \tilde{c}_{m}^†\tilde{c}_{n} \approx ∑_{mn}V^{0}_{mn} \eu^{\iu (ε_{m}-ε_{n})t}\tilde{c}_{m}^†\tilde{c}_{n}.
 \end{equation}
+Upon changing into another rotating frame we can remove this residual
+time dependence
+\begin{equation}
+  \label{eq:33}
+  h_{n}(t) = \tilde{c}_{n}\eu^{-\iu ε_{n}t} \implies \tilde{H}'_{A} =
+  ∑_{mn}\bqty{V^{0}_{mn} + δ_{mn}ε_{m}} h_{m}^†h_{n}
+\end{equation}
+
 We can subsequently find a unitary transformation that diagonalizes
 the RWA interaction
 \begin{equation}
   \label{eq:30}
-  ∑_{mn}\pqty{O^{†}}_{im}V_{mn}^{0}O_{nj} = ω_{j} δ_{ij},
+  ∑_{mn}\pqty{O^{†}}_{im}\bqty{V^{0}_{mn} + δ_{mn}ε_{m}}O_{nj} = ω_{j} δ_{ij},
 \end{equation}
 where the columns of \(O\) are the normalized eigenvectors of
 \(V_{mn}^{0}=\mel{m}{V^{0}}{n}\). So if \(\ket{ψ_{j}}\) is an
@@ -77,22 +85,29 @@ eigenvector of \(V\), then \(\braket{i}{ψ_{j}} = O_{ij}\)
 \footnote{This is just a reminder for Valentin who can't seem to keep
   this in his head.}.
 
-Transforming the \(\tilde{c}_{m}\) according to
+Transforming the \(h_{m}\) according to
 \begin{equation}
   \label{eq:13}
-  d_{γ} = ∑_{n}O^{\ast}_{nγ} \tilde{c}_{n} \implies \tilde{H}_{A} = ∑_{γ}ω_{γ} d_{γ}^†d_{γ}
+  d_{γ} = ∑_{n}O^{\ast}_{nγ}(0) h_{n} = ∑_{n}O^{\ast}_{nγ}(t) \tilde{c}_{n}  \implies \tilde{H}''_{A} = ∑_{γ}ω_{γ} d_{γ}^†d_{γ}
 \end{equation}
-leaves us with a very simple Hamiltonian.
-Let us list the relation between the \(a\), \(c\) and \(d\) operators
+where
+\begin{equation}
+  \label{eq:35}
+  O_{nγ}(t)\equiv O_{nγ}\eu^{\iu ε_{n}t}
+\end{equation}
+leaves us with a very simple Hamiltonian
+
+Let us list the relation between the \(a\), \(c\), \(h\) and \(d\) operators
 for later reference
 \begin{align}
   \label{eq:15}
   c_{n} &= \eu^{-\iu
-          ω^{0}_{n} t}\tilde{{c}}_{n} =  \eu^{-\iu
-          ω^{0}_{n} t} ∑_{γ} O_{nγ}d_{γ} \\
+          ω^{0}_{n} t}\tilde{{c}}_{n} = \eu^{-\iu
+          (ω^{0}_{n}-ε_{n}) t} h_{n}=  \eu^{-\iu
+          (ω^{0}_{n}) t} ∑_{γ} O_{nγ}(t)d_{γ} \\
   a_{β} &= ∑_{m} U_{β,m} c_{m} = ∑_{m} U_{β,m} \tilde{c}_{m}\eu^{-\iu
           ω^{0}_{m} t} = ∑_{mγ} U_{β,m} \eu^{-\iu
-          ω^{0}_{m} t} O_{mγ}d_{γ}   \equiv ∑_{γ}\mathcal{U}(t)_{β,γ} d_{γ}.
+          ω^{0}_{m} t} O_{mγ}(t)d_{γ}
 \end{align}
 
 
@@ -440,9 +455,9 @@ To integrate \cref{eq:28}, we
 first diagonalize \(V^{0}_{mn}\)
 \begin{equation}
   \label{eq:32}
-  \dot{d}_{γ} = ∑_{m}O^{\ast}_{mγ}\dot{\tilde{c}}_{m} = -\iu\bqty{ω_{ω_{γ}}d_{γ} +
-    ∑_{σ=\pm}∑_{m}O^{\ast}_{mγ}\frac{g_{m,σ}^\ast }{\sqrt{ω_{m}^{0}}} \eu^{\iu ω_{m}^{0}t}
-    b_{\inputf,σ}^{m}(t)} - π∑_{m}O^{\ast}_{mγ}η_{m}\tilde{c}_{m}(t).
+  \dot{d}_{γ} = ∑_{m}O^{\ast}_{mγ}\dot{\tilde{c}}_{m} = -\iu\bqty{{ω_{γ}}d_{γ} +
+    ∑_{σ=\pm}∑_{m}O^{\ast}_{mγ}(t)\frac{g_{m,σ}^\ast }{\sqrt{ω_{m}^{0}}} \eu^{\iu ω_{m}^{0}t}
+    b_{\inputf,σ}^{m}(t)} - π∑_{m}O^{\ast}_{mγ}(t)η_{m}\tilde{c}_{m}(t).
 \end{equation}
 
 We now introduce some additional simplifications. As the coupling to
@@ -462,7 +477,7 @@ constant. With these considerations in mind we can simplify
   \dot{d}_{γ} = ∑_{m}O^{\ast}_{mγ}\dot{\tilde{c}}_{m} =
   -\iu\bqty{{ω_{γ}}d_{γ} + \sqrt{κ} ∑_{σ=\pm}
     U^{\pm}_{γ}(t) \frac{b_{\inputf}(t)}{\sqrt{ω_{0}}}} - η d_{γ}\\
-  U^{σ}_{γ}(t) = ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}O^\ast_{mγ} \eu^{\iu ω_{m}^{0}t}
+  U^{σ}_{γ}(t) = ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}O^\ast_{mγ}(t) \eu^{\iu ω_{m}^{0}t}= ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}O^\ast_{mγ} \eu^{\iu (ω_{m}^{0}-ε_{m})t}
 \end{gather}
 These simplifications still capture the essence of the physics, as
 demonstrated in the current long-range SSH experiment.
