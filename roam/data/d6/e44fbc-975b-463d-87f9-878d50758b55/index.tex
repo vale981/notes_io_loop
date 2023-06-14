@@ -99,7 +99,7 @@ where
   \label{eq:35}
   O_{nγ}(t)\equiv O_{nγ}\eu^{\iu ε_{n}t}
 \end{equation}
-leaves us with a very simple Hamiltonian
+leaves us with a very simple Hamiltonian.
 
 Let us list the relation between the \(a\), \(c\), \(h\) and \(d\) operators
 for later reference
@@ -398,7 +398,7 @@ Altogether we arrive at
   \label{eq:28}
   \dot{\tilde{c}}_{m} = -\iu\bqty{∑_{n}V^{0}_{mn} \tilde{c}_n +
     \frac{\eu^{\iu ω_{m}^{0}t}}{\sqrt{ω_{m}^{0}}}
-    ∑_{σ=\pm}g_{m,σ}^\ast b_{\inputf,+}^{m}(t)} - η_{m}\tilde{c}_{m}(t).
+    ∑_{σ=\pm}g_{m,σ}^\ast b_{\inputf,+}^{m}(t)} - η_{m}\tilde{c}_{m}.
 \end{equation}
 The usual situation is that \(b^{m}_{\inputf, -} = 0\) and we can
 restrict ourselves to the coupling to the right-moving input field.
@@ -456,47 +456,57 @@ much smaller than a typical timescale we're interested in.
 
 
 To integrate \cref{eq:28}, we
-first diagonalize \(V^{0}_{mn}\)
+first diagonalize \(V^{0}_{mn} + δ_{mn}\pqty{ε_{m}-i η_{m}}\)
+\begin{equation}
+  \label{eq:65}
+  V^{0}_{mn} + δ_{mn}\pqty{ε_{m}-i η_{m}} \to ∑_{γγ'}
+  δ_{γγ'}(ω_{γ}-\iu \tilde{n}_{γ})
+\end{equation}
+to obtain \(O_{mγ}(t)\) and find
 \begin{equation}
   \label{eq:32}
-  \dot{d}_{γ} = ∑_{m}O^{\ast}_{mγ}\dot{\tilde{c}}_{m} = -\iu\bqty{{ω_{γ}}d_{γ} +
+  \dot{d}_{γ} = ∑_{m}O^{\ast}_{mγ}\dot{\tilde{c}}_{m} =
+  -\iu\bqty{\pqty{ω_{γ} - \iu \tilde{η}_{γ}}d_{γ} +
     ∑_{σ=\pm}∑_{m}O^{\ast}_{mγ}(t)\frac{g_{m,σ}^\ast }{\sqrt{ω_{m}^{0}}} \eu^{\iu ω_{m}^{0}t}
-    b_{\inputf,σ}^{m}(t)} - π∑_{m}O^{\ast}_{mγ}(t)η_{m}\tilde{c}_{m}(t).
+    b_{\inputf,σ}^{m}(t)}.
 \end{equation}
 
-We now introduce some additional simplifications. As the coupling to
-the transmission line is likely not the only source of loss it is
-justified to replace \(η_{m}\) with a constant \(η\) as the simplest
-choice. Further, we equate all input fields \(b_{\inputf}^{m}\). This
-is allowed, as we will transition to the classical picture later,
-where the commutation relations do not matter. We also assume that
-we're working in a region in \(m\) space, where the
-\(g_{β}^{0}\approx \sqrt{κ}\) and
+We now introduce some additional simplifications beginning with
+equating all input fields \(b_{\inputf}^{m}\). This is allowed, as we
+will transition to the classical picture later, where the commutation
+relations do not matter. We also assume that we're working in a region
+in \(m\) space, where the \(g_{β}^{0}\approx \sqrt{κ}\) and
 \(\sqrt{ω^{0}_{m}}\approx\sqrt{ω_{0}}\), where \(ω_{0}\) is a typical
 frequency in the input field, can be assumed to be approximately
 constant. With these considerations in mind we can simplify
 \cref{eq:32} to
+\begin{equation}
+  \label{eq:64}
+  η_{m}=κ\frac{πn_{B}}{c}∑_{σ=\pm,β,β'}U_{βm}U^\ast_{β'm}δ_{\sgn(β),σ} δ_{\sgn(β'),σ}
+\end{equation}
+and
 \begin{gather}
   \label{eq:34}
   \dot{d}_{γ} = ∑_{m}O^{\ast}_{mγ}\dot{\tilde{c}}_{m} =
-  -\iu\bqty{{ω_{γ}}d_{γ} + \sqrt{κ} ∑_{σ=\pm}
-    U^{\pm}_{γ}(t) \frac{b_{\inputf}(t)}{\sqrt{ω_{0}}}} - η d_{γ}\\
-  U^{σ}_{γ}(t) = ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}O^\ast_{mγ}(t) \eu^{\iu ω_{m}^{0}t}= ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}O^\ast_{mγ} \eu^{\iu (ω_{m}^{0}-ε_{m})t}
+  -\iu\bqty{\pqty{ω_{γ}-\iu \tilde{η}_{γ}}d_{γ} + \sqrt{κ} ∑_{σ=\pm}
+    U^{\pm}_{γ}(t) \frac{b_{\inputf}(t)}{\sqrt{ω_{0}}}}\\
+  U^{σ}_{γ}(t) = ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}O^\ast_{mγ}(t) \eu^{\iu ω_{m}^{0}t}= ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}O^\ast_{mγ} \eu^{\iu (ω_{m}^{0}-ε_{m})t}.
 \end{gather}
+
 These simplifications still capture the essence of the physics, as
 demonstrated in the current long-range SSH experiment.
 
 We can now proceed to integrate \cref{eq:34} to obtain
 \begin{equation}
   \label{eq:36}
-  d_{γ}(t)= d_{γ}(0) \eu^{-\pqty{\iu ω_{γ} + η}t} -
+  d_{γ}(t)= d_{γ}(0) \eu^{-\pqty{\iu ω_{γ} + \tilde{η}_{γ}}t} -
   \frac{i}{\sqrt{κ}} Σ_{σ=\pm} ∫_{0}^{t}χ_{γ}(t-s) U^{σ}_{γ}(s)
   \frac{b_{\inputf,σ}(t)}{\sqrt{ω_{0}}}\dd{s}
 \end{equation}
 with
 \begin{equation}
   \label{eq:37}
-  χ_{γ}(t) = κ \eu^{-\pqty{\iu ω_{γ} + η}t}.
+  χ_{γ}(t) = κ \eu^{-\pqty{\iu ω_{γ} + \tilde{η}_{γ}}t}.
 \end{equation}
 
 When constructing the total output field, we have to remember how the
