@@ -33,12 +33,12 @@ linkcolor=blue,
 \usepackage{fontspec}
 \usepackage{unicode-math}
 \setmainfont[Ligatures={Common,Rare,TeX,Required}]{texgyrepagella}[
-  Extension = .otf,
-  UprightFont = *-regular,
-  BoldFont = *-bold,
-  ItalicFont = *-italic,
-  BoldItalicFont = *-bolditalic,
-  ]
+Extension = .otf,
+UprightFont = *-regular,
+BoldFont = *-bold,
+ItalicFont = *-italic,
+BoldItalicFont = *-bolditalic,
+]
 \setmathfont{texgyrepagella-math.otf}
 \KOMAoptions{DIV=last}
 \usepackage[autooneside]{scrlayer-scrpage}
@@ -99,3 +99,8 @@ linkcolor=blue,
 
 % large integrals
 \everydisplay{\Umathoperatorsize\displaystyle=5ex}
+
+% working setminus
+\AtBeginDocument{% to do this after unicode-math has done its work
+  \renewcommand{\setminus}{\mathbin{\backslash}}%
+}
