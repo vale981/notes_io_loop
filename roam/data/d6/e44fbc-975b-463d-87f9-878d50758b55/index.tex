@@ -17,8 +17,8 @@ headinclude=true,footinclude=false,BCOR=0mm]{scrartcl}
 \newcommand{\inputf}[0]{\ensuremath{\mathrm{in}}}
 \newcommand{\outputf}[0]{\ensuremath{\mathrm{out}}}
 \usetikzlibrary{math}
-\usetikzlibrary{external}
-\tikzexternalize[prefix=tikz/]
+% \usetikzlibrary{external}
+% \tikzexternalize[prefix=tikz/]
 \usepackage{pgfplots}
 
 \begin{document}
@@ -97,7 +97,7 @@ Transforming the \(h_{m}\) according to
 where
 \begin{equation}
   \label{eq:35}
-  O_{nγ}(t)\equiv O_{nγ}\eu^{\iu ε_{n}t}
+  O^\ast_{nγ}(t)\equiv O^\ast_{nγ}\eu^{-\iu ε_{n}t}
 \end{equation}
 leaves us with a very simple Hamiltonian.
 
@@ -465,9 +465,9 @@ first diagonalize \(V^{0}_{mn} + δ_{mn}\pqty{ε_{m}-i η_{m}}\)
 to obtain \(O_{mγ}(t)\) and find
 \begin{equation}
   \label{eq:32}
-  \dot{d}_{γ} = ∑_{m}O^{\ast}_{mγ}\dot{\tilde{c}}_{m} =
+  \dot{d}_{γ} = ∑_{m}\pqty{O^{-1}(t)}_{γm}\dot{\tilde{c}}_{m} =
   -\iu\bqty{\pqty{ω_{γ} - \iu \tilde{η}_{γ}}d_{γ} +
-    ∑_{σ=\pm}∑_{m}O^{\ast}_{mγ}(t)\frac{g_{m,σ}^\ast }{\sqrt{ω_{m}^{0}}} \eu^{\iu ω_{m}^{0}t}
+    ∑_{σ=\pm}∑_{m}\pqty{O^{-1}(t)}_{γm}\frac{g_{m,σ}^\ast }{\sqrt{ω_{m}^{0}}} \eu^{\iu ω_{m}^{0}t}
     b_{\inputf,σ}^{m}(t)}.
 \end{equation}
 
@@ -487,10 +487,10 @@ constant. With these considerations in mind we can simplify
 and
 \begin{gather}
   \label{eq:34}
-  \dot{d}_{γ} = ∑_{m}O^{\ast}_{mγ}\dot{\tilde{c}}_{m} =
+  \dot{d}_{γ} =
   -\iu\bqty{\pqty{ω_{γ}-\iu \tilde{η}_{γ}}d_{γ} + \sqrt{κ} ∑_{σ=\pm}
     U^{\pm}_{γ}(t) \frac{b_{\inputf}(t)}{\sqrt{ω_{0}}}}\\
-  U^{σ}_{γ}(t) = ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}O^\ast_{mγ}(t) \eu^{\iu ω_{m}^{0}t}= ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}O^\ast_{mγ} \eu^{\iu (ω_{m}^{0}-ε_{m})t}.
+  U^{σ}_{γ}(t) = ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}\pqty{O^{-1}(t)}_{γm} \eu^{\iu ω_{m}^{0}t}= ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}\pqty{O^{-1}}_{γm}\eu^{\iu (ω_{m}^{0}-ε_{m})t}.
 \end{gather}
 
 These simplifications still capture the essence of the physics, as
@@ -729,7 +729,7 @@ To maximize the residual rotating terms, the minimum of the
   Δ_{\max}\equiv \max_{δ}Δ_{\min}(δ) = \max_{δ}\min\Bqty{2δ, \abs{Ω_{B}-δ}, \abs{Ω_{B}-3δ},
     \abs{2Ω_{B}-3δ}, \abs{Ω_{B}-2δ}}.
 \end{equation}
-We find that \(Δ_{\max}=Ω_{B}/4\) for
+We find that \(Δ_{\max}=2Ω_{B}/5\) for
 \begin{equation}
   \label{eq:63}
   δ_{\mathrm{opt}}=Ω_{B}/5,
@@ -748,7 +748,6 @@ as can be ascertained from \cref{fig:delta_choice}.
       xtick = {0}, ytick = \empty,
       clip = false,
       xtick={},ytick={},
-      tick num = 10,
       minor tick num=5,
       grid=both,
       grid style={line width=.1pt, draw=gray!10},
@@ -760,7 +759,7 @@ as can be ascertained from \cref{fig:delta_choice}.
       y label style={at={(axis description cs:-0.06,.5)},rotate=90,anchor=south},
       ]
       \addplot[domain = 0:1, restrict y to domain = 0:1, samples =
-      1000, color = cerulean]{min(2*x, 1-x, abs(1-3*x), abs(2-3*x),
+      1000]{min(2*x, 1-x, abs(1-3*x), abs(2-3*x),
         abs(1-2*x))};
       \addplot[color = black, mark = *, only marks, mark size = 3pt]
       coordinates {(.2, .4)};
