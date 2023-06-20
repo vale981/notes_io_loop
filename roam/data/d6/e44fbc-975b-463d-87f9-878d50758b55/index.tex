@@ -482,13 +482,13 @@ constant. With these considerations in mind we can simplify
 \cref{eq:32} to
 \begin{equation}
   \label{eq:64}
-  η_{m}=κ\frac{πn_{B}}{c}∑_{σ=\pm,β,β'}U_{βm}U^\ast_{β'm}δ_{\sgn(β),σ} δ_{\sgn(β'),σ}
+  η_{m}=\abs{κ}\frac{πn_{B}}{c}∑_{σ=\pm,β,β'}U_{βm}U^\ast_{β'm}δ_{\sgn(β),σ} δ_{\sgn(β'),σ}
 \end{equation}
 and
 \begin{gather}
   \label{eq:34}
   \dot{d}_{γ} =
-  -\iu\bqty{\pqty{ω_{γ}-\iu \tilde{η}_{γ}}d_{γ} + \sqrt{κ} ∑_{σ=\pm}
+  -\iu\bqty{\pqty{ω_{γ}-\iu \tilde{η}_{γ}}d_{γ} + \sqrt{κ^\ast} ∑_{σ=\pm}
     U^{σ}_{γ}(t) \frac{b_{\inputf}(t)}{\sqrt{ω_{0}}}}\\
   U^{σ}_{γ}(t) = ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}\pqty{O^{-1}(t)}_{γm} \eu^{\iu ω_{m}^{0}t}= ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}\pqty{O^{-1}}_{γm}\eu^{\iu (ω_{m}^{0}-ε_{m})t}.
 \end{gather}
@@ -506,7 +506,7 @@ We can now proceed to integrate \cref{eq:34} to obtain
 with
 \begin{equation}
   \label{eq:37}
-  χ_{γ}(t) = κ \eu^{-\pqty{\iu ω_{γ} + \tilde{η}_{γ}}t}.
+  χ_{γ}(t) = \abs{κ} \eu^{-\pqty{\iu ω_{γ} + \tilde{η}_{γ}}t}.
 \end{equation}
 
 When constructing the total output field, we have to remember how the
