@@ -32,12 +32,30 @@ system \(A\) and a transmission line \(B\). The \(A\) system is
 considered to have the Hamiltonian
 \begin{equation}
   \label{eq:1}
-  H_{A}=H_{0}+V(t) = ∑_{m} ω^{0}_{m} c_{m}^†c_{m} + V(t),
+  H_{A}=H_{0}+V(t) = ∑_{j,β;i,α} \pqty{H_{0}}_{i,α;j,β}a_{j,β}^†a_{i,α}=  ∑_{m} ω^{0}_{m} c_{m}^†c_{m} + V(t),
 \end{equation}
-where we are working in the basis that diagonalizes \(H_{0}\) and the
-\(c_{m}\) are linear combinations of the bare modes in the photonic
-system. We designate the bare modes of the EM field that are actually
-in contact with the transmission line as \(a_{β}\) with
+where \(\comm{a_{i,α}}{a^†_{j,β}}=δ_{ij}δ_{αβ}\).  We assume that the
+system \(A\) consists of several distinct resonators/cavities indexed
+by the first index on the \(a^†\), who each have their own lengths
+\(L_{A,i}\) and eigen-momenta \(k_{i,α} = 2πα/L_{A,i}\) with
+\(α\in\ZZ\).
+
+The eigenmodes of the system \(c_{m}\) are linear combinations of the
+bare modes in the photonic system where we have
+\begin{equation}
+  \label{eq:43}
+  c_{m} = ∑_{i,α} T^\ast_{i,α;m}a_{i,α},
+\end{equation}
+where \(T_{i,α;m}\) is the matrix whose rows are the normalized
+eigenvectors of the matrix \(\pqty{H_{0}}_{i,α;j,β}\).
+
+
+We designate the bare modes of the
+EM field that are actually in contact with the transmission line as
+the modes with subsystem index \(i=i_{0}\) which is suppressed for
+clarity in all expressions concerning that subsystem. We find modes
+\(a_{β}\) for the electric field in the subsystem in contact with the
+transmission line
 \begin{equation}
   \label{eq:4}
   E_{A}(x,t)= \iu \sqrt{\frac{\hbar}{2ε_{0}n_{A}^{2} L_{A,\perp}^{2} L_{A}}} ∑_{β}
@@ -58,11 +76,11 @@ can be related through
   \label{eq:5}
   a_{β} = ∑_{m} U_{βm} c_{m},
 \end{equation}
-where \(U\) is a not necessarily square matrix that obeys the
-unitarity relation \(U U^† = \id\).  Transitioning into a rotating
-frame with respect to \(H_{0}\) and employing the rotating wave
-approximation removes all but the slowest-oscillating rotating terms
-from the interaction
+where \(U_{βm} = T_{i_{0},β;m}\) is a not necessarily square matrix
+that obeys the unitarity relation \(U U^† = \id\).  Transitioning into
+a rotating frame with respect to \(H_{0}\) and employing the rotating
+wave approximation removes all but the slowest-oscillating rotating
+terms from the interaction
 \begin{equation}
   \label{eq:12}
   \tilde{c}(t)_{m} = c_{m}(t)\eu^{\iu ω^{0}_{m}t}  \implies H_{A} \to \tilde{H}_{A}=
@@ -550,6 +568,21 @@ position \(x>0\) we have
   \ev{b_{\inputf}(x,t)} -∫_{0}^{τ(x,t)}χ_{++}(τ(x,t),s) \ev{b_{\inputf}(s)} \dd{s}.
 \end{equation}
 with \(b_{\inputf}(s) = b_{\inputf,+}(s) + b_{\inputf,-}(s) = b_{\inputf,+}(s)\).
+
+\subsection{Langevin-Equations for Lossy Oscillators}
+\label{sec:lang-equat-lossy}
+
+In the above we have assumed that \(H_{0}\) is hermitian. This,
+however, ceases to be the case when we assume some a-priori
+phenomenological decay in the bare components of the system and we
+cannot write \(H_{0}=H^{H}_{0} - \iu η \id\) with \(H^{H}_{0}\)
+hermitian.
+
+
+
+
+
+
 
 \section{Application to the Non-Markovian Quantum Walk}
 \label{sec:appl-non-mark}
