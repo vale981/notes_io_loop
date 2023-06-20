@@ -576,13 +576,153 @@ In the above we have assumed that \(H_{0}\) is hermitian. This,
 however, ceases to be the case when we assume some a-priori
 phenomenological decay in the bare components of the system and we
 cannot write \(H_{0}=H^{H}_{0} - \iu η \id\) with \(H^{H}_{0}\)
-hermitian.
+hermitian. To retain consistency, the decay rates have to be
+introduced on the level of the equations of motion of the mode
+operators \(a_{i,α}\) after deriving them from the hermitian
+Hamiltonian. The equations of motion can then still be decoupled by
+diagonalizing the non-hermitian that includes the phenomenological
+decay.
+
+We find\footnote{Assuming that the non-hermiticity is small enough for
+the matrix to remain diagonalizable.}
+\begin{equation}
+  \label{eq:53}
+  ∑_{iα;jβ}\pqty{T^{-1}}_{m;i,α} \pqty{H_{0}}_{i,α;j,β}T_{j,β;n} =
+  \pqty{ω_{m}^{0}-\iu η_{m}^{0}}δ_{nm},
+\end{equation}
+where \(T\) is the matrix whose rows are the eigenvectors of
+\(H_{0}\). Note that \(T\) is not unitary anymore.  For notational
+convenience we will write \(T^{-1}_{m;i,α}\) instead of
+\(\pqty{T^{-1}}_{m;i,α}\) and use explicit fractions if we want to
+express the multiplicative inverse. The mode operators transform as
+\begin{equation}
+  \label{eq:60}
+  c_{m} = ∑_{i,α} T^{-1}_{m;i,α}a_{i,α},
+\end{equation}
+which are \emph{not} to be identified with bosons anymore, as the
+non-unitarity of \(T\) breaks the bosonic commutation
+relations. Again, we express the modes that are in contact with the
+transmission line as \(a_{α}=a_{i_{0},α}\) and find
+\begin{equation}
+  \label{eq:69}
+  α_{α} = ∑_{α} T_{i_{0},α;m}c_{m} \equiv ∑_{α}U_{αm} c_{m}.
+\end{equation}
+For convenience we define
+\begin{equation}
+  \label{eq:70}
+  U^{-1}_{mα}\equiv T^{-1}_{m;iα}.
+\end{equation}
+
+The modulation term \(V\) transforms as
+\begin{equation}
+  \label{eq:74}
+  V_{mn}=∑_{iα;jβ}\pqty{T^{-1}}_{m;i,α} V_{i,α;j,β}T_{j,β;n},
+\end{equation}
+and is no longer hermitian.
+
+We start by writing down the equations of motion for the original
+modes, assuming \(H_{0}\) to be hermitian, introduce the non-hermitian
+terms and express everything in terms of the \(c_{m}\) using
+\(T\). Subsequently, we change into a rotating frame
+\begin{equation}
+  \label{eq:66}
+  \tilde{c}_{m} = c_{m}\eu^{\iu ω^{0}_{m}t},
+\end{equation}
+rotating away only the unitary evolution. Applying the rotating wave
+and first Markov approximations works out precisely as in
+\cref{sec:rotating-wave-first}.
 
 
+To account for non-unitarity we have to make the following
+replacements along the way
+\begin{align}
+  \label{eq:68}
+  \tilde{G}_{m}(k) &\rightarrow \tilde{G}_{m}(k)= \frac{gΔx}{\sqrt{L_{A}}} ∑_{β} U_{βm}
+                     G_{β}(k) δ_{\sgn(β),\sgn(k)}\\
+  \tilde{G}^\ast_{m}(k) &\rightarrow\tilde{G}^{-1}_{m}(k) = \frac{g^\astΔx}{\sqrt{L_{A}}} ∑_{β} U^{-1}_{mβ}
+                          G^\ast_{β}(k) δ_{\sgn(β),\sgn(k)}\\
+  g_{m,σ}&\rightarrow g_{m,σ}=∑_{β}g^{0}_{β} U_{βm}δ_{\sgn(β),σ}\\
+  g^\ast_{m,σ}&\rightarrow g^{-1}_{m,σ}=∑_{β}\pqty{g^{0}_{β}}^\ast U^{-1}_{mβ}δ_{\sgn(β),σ}\\
+\end{align}
+which gives us
+\begin{align}
+  \label{eq:72}
+  η_{m}=\frac{π n_{B}}{c} ∑_{σ} g_{mσ}g^{-1}_{mσ},
+\end{align}
+which might have an imaginary part.
 
+This leaves us with
+\begin{equation}
+  \label{eq:73}
+  \dot{\tilde{c}}_{m}= -\iu\bqty{∑_{n}V^{0}_{mn}\eu^{\iu
+      \pqty{ε_{m}-ε_{n}}t} + \frac{\eu^{\iu ω^{0}_{m}t}}{\sqrt{ω^{0}_{m}}}∑_{σ=\pm}g_{mσ}^{-1}b_{\inputf,σ}^{m}}  - \pqty{η_{m} +
+    η_{m}^{0}}\tilde{c}_{m}.
+\end{equation}
+To remove the residual explicit time dependence in \cref{eq:73} we
+define
+\begin{equation}
+  \label{eq:75}
+  h_{m}=\tilde{c}_{m}\eu^{-\iu ε_{m}t}
+\end{equation}
+and find
+\begin{equation}
+  \label{eq:76}
+  \dot{h}_{m}= -\iu\bqty{∑_{n}\Bqty{V^{0}_{mn}+ \bqty{ε_{m}-\iu
+      \pqty{η_{m}^{0}+η_{m}}}δ_{nm}}h_{m}} + \frac{\eu^{\iu \pqty{ω^{0}_{m}-ε_{m}}t}}{\sqrt{ω^{0}_{m}}}∑_{σ=\pm}g_{mσ}^{-1}b_{\inputf,σ}^{m}.
+\end{equation}
 
+Diagonalizing
+\begin{equation}
+  \label{eq:77}
+  ∑_{mn}O^{-1}_{γ'm}\bqty{∑_{n}\Bqty{V^{0}_{mn}+ \bqty{ε_{m}-\iu
+        \pqty{η_{m}^{0}+η_{m}}}δ_{nm}}h_{m}}O_{nγ} = \pqty{ω_{γ}-\iu λ_{γ}}δ_{γ,γ'}
+\end{equation}
+and defining
+\begin{equation}
+  \label{eq:78}
+  d_{γ} = ∑_{n}O^{-1}_{γn}h_{n} = ∑_{n}O^{-1}_{γn}\eu^{-\iu
+    ε_{n}t}\tilde{c}_{n}\implies h_{n}=∑_{γ}\eu^{\iu ε_{n}t}O_{nγ}d_{γ}
+\end{equation}
+will give us the equivalent of \cref{eq:32}
+\begin{equation}
+  \label{eq:80}
+  \dot{d}_{γ}=-\iu\pqty{ω_{γ}+\sqrt{κ^\ast}∑_{σ=\pm}U^{σ}_{γ}\frac{b_{\inputf,σ}}{\sqrt{ω_{0}}}}d_{γ}
+  - λ_{γ}d_{γ}
+\end{equation}
+where we have set \(g_{β}^{0}=\sqrt{κ}\) and defined
+\begin{equation}
+  \label{eq:82}
+  U^{σ}_{γ} =
+  ∑_{mβ}\eu^{\iu\pqty{ω^{0}_{m}-ε_{m}}t}O^{-1}_{γm}U^{-1}_{mβ}δ_{\sgn(β),σ}.
+\end{equation}
+This also simplifies \cref{eq:64} to
+\begin{equation}
+  \label{eq:88}
+  η_{m}=\abs{κ}\frac{πn_{B}}{c}∑_{σ=\pm,β,β'}U_{βm}U^{-1}_{βm'}δ_{\sgn(β),σ} δ_{\sgn(β'),σ}.
+\end{equation}
 
+Further defining
+\begin{align}
+  \label{eq:83}
+  \bar{U}^{σ}_{γ}&=∑_{mβ}\eu^{-\iu\pqty{ω^{0}_{m}-ε_{m}}t}O_{mγ}U_{βm}δ_{\sgn(β),σ}\qq{and}&
+  χ_{γ}&=\abs{κ}\eu^{-\pqty{\iu ω_{γ}+λ_{γ}}t},
+\end{align}
+we obtain
+\begin{equation}
+  \label{eq:86}
+  \ev{{b_{\outputf}(x,t)}} =
+  \ev{b_{\inputf}(x,t)} - ∑_{σ=\pm}∫_{0}^{τ(x,t)}χ_{\sgn(x),σ}(τ(x,t),s) \ev{b_{\inputf,σ}(s)} \dd{s}
+\end{equation}
+with the time non-local susceptibility for the left and right moving
+input fields
+\begin{equation}
+  \label{eq:87}
+  χ_{δ,σ}(t,s) = \frac{π n_{B}}{c}Θ(t) ∑_{γ}\bar{U}^{δ}_{γ}(t)χ_{γ}(t-s)U^{σ}_{γ}(s).
+\end{equation}
 
+These equations are essentially the same as \cref{eq:39,eq:40},
+accounting for the non-unitary transformations and the apriori decay
+rates when diagonalizing the equations of motion for the \(\tilde{c}_{m}\).
 
 \section{Application to the Non-Markovian Quantum Walk}
 \label{sec:appl-non-mark}
