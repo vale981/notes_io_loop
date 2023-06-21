@@ -610,7 +610,7 @@ transmission line as \(a_{α}=a_{i_{0},α}\) and find
 For convenience we define
 \begin{equation}
   \label{eq:70}
-  U^{-1}_{mα}\equiv T^{-1}_{m;iα}.
+  U^{-1}_{mα}\equiv T^{-1}_{m;i_{0}α}.
 \end{equation}
 
 The modulation term \(V\) transforms as
@@ -698,7 +698,7 @@ where we have set \(g_{β}^{0}=\sqrt{κ}\) and defined
 This also simplifies \cref{eq:64} to
 \begin{equation}
   \label{eq:88}
-  η_{m}=\abs{κ}\frac{πn_{B}}{c}∑_{σ=\pm,β,β'}U_{βm}U^{-1}_{βm'}δ_{\sgn(β),σ} δ_{\sgn(β'),σ}.
+  η_{m}=\abs{κ}\frac{πn_{B}}{c}∑_{σ=\pm,β,β'}U_{βm}U^{-1}_{m'β}δ_{\sgn(β),σ} δ_{\sgn(β'),σ}.
 \end{equation}
 
 Further defining
@@ -950,12 +950,131 @@ as can be ascertained from \cref{fig:delta_choice}.
     highlights \(δ=Ω_{B}/5\) and the grey marker marks \(δ=Ω_{B}/4\).}
 \end{figure}
 
-\subsection{Steady-state Transmission}
+
+\subsection{Effects of Asymmetric Damping}
+\label{sec:effects-asymm-damp}
+
+In the above, we have not accounted for the apriori damping in the
+fibre loops. As they are of vastly differing lengths, it is sensible
+to expect different damping rates for each.
+
+To account for this, we modify \cref{eq:51} to
+\begin{equation}
+  \label{eq:89}
+  \begin{aligned}
+    H_{A}= ω_{s}a_{S,0}^†a_{S,0} &+ ∑_{n=-N}^{N} ω_{n}^{B}a_{B,n}^†a_{B,n} + δ \pqty{\eu^{\iu
+                                   ϕ}a_{B,0}^†a_{S,0} + \eu^{-\iu ϕ}a_{S,0}^†a_{B,0}} + ∑_{mn}J_{mn}(t) a_{B,m}^†a_{B,n}
+    \\&- \iu a_{S,0}^†a_{S,0}η_{S} a^†a - \iu \pqty{η_{S}+2Δδ} ∑_{n}a_{B,n}^†a_{B,n}
+  \end{aligned}
+\end{equation}
+with the damping rates \(η_{S}\) and the damping asymmetry
+\(\abs{Δ}< 1\).
+
+
+The diagonalizing transformation is then
+{\renewcommand\arraystretch{1.5}
+\begin{equation}
+  \label{eq:90}
+  \begin{aligned}
+    T_{i,0;\mp}  &\triangleq \frac{1}{\sqrt{2}}
+  \begin{pmatrix}
+    -\eu^{-\iu ψ} & \eu^{\iu ψ} \\
+    \eu^{\iu ϕ} & \eu^{\iu ϕ}
+  \end{pmatrix}
+  & T^{-1}_{\mp;i,0} &\triangleq
+                    \frac{1}{\sqrt{2}\sqrt{1-Δ^{2}}}
+                    \begin{pmatrix}
+                      -1 & \eu^{-\iu (ϕ-ψ)}\\
+                      1 & \eu^{-\iu (ϕ+ψ)}
+                    \end{pmatrix}
+  \end{aligned}
+\end{equation}}
+with \(i=B,S\) and
+\begin{equation}
+  \label{eq:93}
+  \eu^{\iu ψ} \equiv \iu Δ + \sqrt{1-Δ^{2}}  \implies ψ = \sin^{-1}(Δ).
+\end{equation}
+For all other matrix elements \(T\) equals the
+identity
+\begin{equation}
+  \label{eq:95}
+  T_{i,α;m} = T^{-1}_{m;i,α} = δ_{i,B} δ_{αm}
+\end{equation}
+for \(m\neq\pm\).
+
+
+With this, we have for \(m=\pm,-N,-N+1,\ldots,-1,1,2,\ldots,N\)
+\begin{equation}
+  \label{eq:94}
+  \begin{aligned}
+    ω^{0}_{m\neq \pm} &= ω_{n}^{B} & ω^{0}_{\pm} &= \pm δ \sqrt{1-Δ^{2}}\\
+    η^{0}_{m\neq\pm} &= η_{B} = η_S+2δΔ & η^{0}_{\pm} &=  n_{S} + δΔ =
+                                                      \frac{η_{S}+ η_{B}}{2}.
+  \end{aligned}
+\end{equation}
+Next, we compute the transformation of the interaction
+\(T^{-1}VT\) (see \cref{eq:74}) and find
+\begin{equation}
+  \label{eq:96}
+  \begin{aligned}
+    V_{\pm,n\not\in \{+,-\}} &= \frac{J_{0,n}}{\sqrt{2}\sqrt{1-Δ^{2}}}\eu^{-\iu(ϕ\pm ψ)}  &
+    V_{n\not\in \{+,-\},\pm}&= \frac{J_{n,0}}{\sqrt{2}}\eu^{\iu ϕ} & V_{n\neq \pm,
+                                                         m\neq \pm} &=
+                                                         J_{nm} \\
+    V_{+,-}&=\frac{J_{00}}{2\sqrt{1-Δ^{2}}}\eu^{-\iu ψ} & V_{-,+} &=\frac{J_{00}}{2\sqrt{1-Δ^{2}}}\eu^{\iu ψ}.
+  \end{aligned}
+\end{equation}
+Evidently, the matrix \(T^{-1}VT\) is not hermitian except in the
+limit \(Δ\to 0\).
+
+\subsection{Steady-state Transmission on the Small Ring}
 \label{sec:steadyst-transm}
 
-TBD (already manually)
+We can now proceed to calculate the steady state transmission for the
+transmission line attached to the small loop (see
+\cref{fig:schematic}).
 
+As our input field has only right-moving components and our detector
+is situated to the right of the fibre-coupler, we can set \(δ,σ=+\) in
+\cref{eq:87} and will suppress those indices in the following.
 
+Using \cref{sec:effects-asymm-damp}, we identify
+\begin{equation}
+  \label{eq:97}
+  \begin{aligned}
+    T_{i_{0},β;m} &\to T_{S,0;\pm} &\implies U_{β,m} &\to U_{0,m} =
+                                                       T_{S,0;m} =
+                                                       \frac{1}{\sqrt{2}}
+                                                       \eu^{\iu m
+                                                       ψ}\pqty{δ_{m,+}-δ_{m,-}}\\
+    && U^{-1}_{m,β}&\to U^{-1}_{m,0} =
+                     T^{-1}_{m;S,0}=\frac{1}{\sqrt{2}\sqrt{1-Δ^{2}}}\pqty{δ_{m,+}-δ_{m,-}}
+  \end{aligned}
+\end{equation}
+which yields using \cref{eq:88}
+\begin{equation}
+  \label{eq:98}
+  η_{m} = \frac{\abs{κ} πn_{B}}{2c\sqrt{1-Δ^{2}}} \pqty{δ_{m,+}
+    \eu^{\iu ψ} + δ_{m,-}\eu^{-\iu ψ}}.
+\end{equation}
+
+To obtain the \(ω_{γ}\) and \(O_{m,γ}\) we have to diagonalize
+\begin{equation}
+  \label{eq:99}
+  V^{0}_{n,m} + \pqty{ε_{m} -\iu \pqty{η^{0}_{m} + η_{m}} δ_{nm}}.
+\end{equation}
+As
+\begin{equation}
+  \label{eq:100}
+  \Im η_{\pm}= \pm \frac{\abs{κ} πn_{B}}{2c\sqrt{1-Δ^{2}}}Δ,
+\end{equation}
+we obtain a correction to the on-site energies \(ε_{\pm}=\pm ε_{A}\),
+whereas
+\begin{equation}
+  \label{eq:101}
+  \Re η_{\pm} = \frac{\abs{κ} πn_{B}}{2c}
+\end{equation}
+is independent of \(Δ\) which is consistent with the symmetry of \(η^{0}_{\pm}\).
 
 \newpage
 \printbibliography{}
