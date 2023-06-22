@@ -951,6 +951,8 @@ as can be ascertained from \cref{fig:delta_choice}.
 \end{figure}
 
 
+
+
 \subsection{Effects of Asymmetric Damping}
 \label{sec:effects-asymm-damp}
 
@@ -982,7 +984,7 @@ The diagonalizing transformation is then
     \eu^{\iu ϕ} & \eu^{\iu ϕ}
   \end{pmatrix}
   & T^{-1}_{\mp;i,0} &\triangleq
-                    \frac{1}{\sqrt{2}\sqrt{1-Δ^{2}}}
+                    \frac{1}{\sqrt{2}\cos(ψ)}
                     \begin{pmatrix}
                       -1 & \eu^{-\iu (ϕ-ψ)}\\
                       1 & \eu^{-\iu (ϕ+ψ)}
@@ -1007,7 +1009,7 @@ With this, we have for \(m=\pm,-N,-N+1,\ldots,-1,1,2,\ldots,N\)
 \begin{equation}
   \label{eq:94}
   \begin{aligned}
-    ω^{0}_{m\neq \pm} &= ω_{n}^{B} & ω^{0}_{\pm} &= \pm δ \sqrt{1-Δ^{2}}\\
+    ω^{0}_{m\neq \pm} &= ω_{n}^{B} & ω^{0}_{\pm} &= \pm δ \cos(ψ)\\
     η^{0}_{m\neq\pm} &= η_{B} = η_S+2δΔ & η^{0}_{\pm} &=  n_{S} + δΔ =
                                                       \frac{η_{S}+ η_{B}}{2}.
   \end{aligned}
@@ -1017,15 +1019,89 @@ Next, we compute the transformation of the interaction
 \begin{equation}
   \label{eq:96}
   \begin{aligned}
-    V_{\pm,n\not\in \{+,-\}} &= \frac{J_{0,n}}{\sqrt{2}\sqrt{1-Δ^{2}}}\eu^{-\iu(ϕ\pm ψ)}  &
+    V_{\pm,n\not\in \{+,-\}} &= \frac{J_{0,n}}{\sqrt{2}\cos(ψ)}\eu^{-\iu(ϕ\pm ψ)}  &
     V_{n\not\in \{+,-\},\pm}&= \frac{J_{n,0}}{\sqrt{2}}\eu^{\iu ϕ} & V_{n\neq \pm,
                                                          m\neq \pm} &=
                                                          J_{nm} \\
-    V_{+,-}&=\frac{J_{00}}{2\sqrt{1-Δ^{2}}}\eu^{-\iu ψ} & V_{-,+} &=\frac{J_{00}}{2\sqrt{1-Δ^{2}}}\eu^{\iu ψ}.
+    V_{+,-}&=\frac{J_{00}}{2\cos(ψ)}\eu^{-\iu ψ} & V_{-,+} &=\frac{J_{00}}{2\cos(ψ)}\eu^{\iu ψ}.
   \end{aligned}
 \end{equation}
 Evidently, the matrix \(T^{-1}VT\) is not hermitian except in the
 limit \(Δ\to 0\).
+
+
+\subsection{Rotating-Wave Interaction}
+\label{sec:rotat-wave-inter}
+The modulation term in \cref{eq:89} can be written as
+\begin{equation}
+  \label{eq:103}
+  V_{nm}(t) = \hat{V}_{nm} f(t),
+\end{equation}
+where \(f(t)\) is proportional to the voltage applied to the
+EOM. Note that \(V_{nm}\) is already expressed in the basis of the
+\(c_{m}\) (see \cref{eq:96}).
+
+Let us now assume that the voltage modulation takes the form of
+\begin{equation}
+  \label{eq:104}
+  f(t)=∑_{j}\frac{\hat{f}_{j}}{2} \sin\qty[\pqty{\hat{ω}_{j}+\hat{δ}_{j}}t
+  + \varphi_{j}] = -\iu ∑_{j}\hat{f}_{j}\bqty{\eu^{\iu
+      \pqty{\hat{ω}_{j}+\hat{δ}_{j}}t}\eu^{\iu \varphi} - \eu^{-\iu
+      \pqty{\hat{ω}_{j}+\hat{δ}_{j}}t}\eu^{-\iu \varphi_{j}}}.
+\end{equation}
+
+Transforming into the rotating frame of the \(\tilde{c}_{m}\) (see
+\cref{eq:66}), we have
+\begin{equation}
+  \label{eq:105}
+  \tilde{V}_{mn}=-\iu ∑_{j}\hat{V}_{mn}\hat{f}_{i}\bqty{\eu^{i \pqty{\hat{ω_{j}} +\hat{δ}_{j} -
+        \pqty{ω^{0}_{n}-ω^{0}_{m}}}t} \eu^{\iu \varphi_{j}}
+    - \eu^{-i \pqty{\hat{ω_{j}} +
+        \hat{δ}_{j}+\pqty{ω^{0}_{n}-ω^{0}_{m}}}t} \eu^{-\iu \varphi_{j}}}.
+\end{equation}
+
+As discussed in \cref{sec:choice-hybridization}, we want to couple the
+\(+\) and \(m\neq \pm\). Comparing with \cref{eq:12}, we set
+\begin{align}
+  \label{eq:107}
+  \hat{ω_{j}}&=ω^{0}_{j} - ω^{0}_{+} = - \pqty{ω^{0}_{-j} - ω^{0}_{-}}& \hat{δ}_{j} = ε_{+}-ε_{j}
+\end{align}
+where \(0<j\leq N\) and obtain from \cref{eq:105} by neglecting all
+counter-rotating terms
+\begin{equation}
+  \label{eq:108}
+  \begin{aligned}
+    \tilde{V}_{+,j} &= -\iu \hat{f}_{j} \hat{V}_{+,j} \eu^{i\varphi_{j}}
+                  \eu^{\iu \pqty{ε_{+}-ε_{j}}t}
+    & \tilde{V}_{j,+} &= \iu \hat{f}_{j} \hat{V}_{j,+}
+                    \eu^{-\iu\varphi_{j}} \eu^{\iu
+                    \pqty{ε_{j}-ε_{+}}t}\\
+    \tilde{V}_{-j,-} &= -\iu \hat{f}_{j} \hat{V}_{-j,-} \eu^{i\varphi_{j}}
+                  \eu^{\iu \pqty{ε_{+}-ε_{j}}t}
+    & \tilde{V}_{-,-j} &= \iu \hat{f}_{j} \hat{V}_{-,-j}
+                    \eu^{-\iu\varphi_{j}} \eu^{\iu
+                    \pqty{ε_{j}-ε_{+}}t}.
+  \end{aligned}
+\end{equation}
+Note, that \cref{eq:108} implies \(ε_{-} = -ε_{+}\) and
+\(ε_{-j} = -ε_{j}\).
+
+Comparing \cref{eq:108} with \cref{eq:96} and identifying
+\(J_{mn}=f(t)\hat{J}_{mn}\) we get
+\begin{align}
+  \label{eq:113}
+  \begin{aligned}
+    V^{0}_{+,j} &= -\iu \hat{f}_{j}
+                  \frac{\hat{J}_{0,j}}{\sqrt{2}\cos(ψ)}
+                  \eu^{-i\pqty{ϕ+ ψ-\varphi_{j}}}
+    & V^{0}_{j,+} &= \iu \hat{f}_{j} \frac{\hat{J}_{0,j}}{\sqrt{2}}
+                    \eu^{i\pqty{ϕ-\varphi_{j}}}\\
+    V^{0}_{-j,-} &= -\iu \hat{f}_{j} \frac{\hat{J}_{-j,0}}{\sqrt{2}}
+                    \eu^{i\pqty{ϕ+\varphi_{j}}}
+    & V^{0}_{-,-j} &= \iu \hat{f}_{j} \frac{\hat{J}_{0,-j}}{\sqrt{2}\cos(ψ)}
+                  \eu^{-i\pqty{ϕ- ψ+\varphi_{j}}}.
+  \end{aligned}
+\end{align}
 
 \subsection{Steady-state Transmission on the Small Ring}
 \label{sec:steadyst-transm}
@@ -1048,17 +1124,17 @@ Using \cref{sec:effects-asymm-damp}, we identify
                                                        \eu^{\iu m
                                                        ψ}\pqty{δ_{m,+}-δ_{m,-}}\\
     && U^{-1}_{m,β}&\to U^{-1}_{m,0} =
-                     T^{-1}_{m;S,0}=\frac{1}{\sqrt{2}\sqrt{1-Δ^{2}}}\pqty{δ_{m,+}-δ_{m,-}}
+                     T^{-1}_{m;S,0}=\frac{1}{\sqrt{2}\cos(ψ)}\pqty{δ_{m,+}-δ_{m,-}}
   \end{aligned}
 \end{equation}
 which yields using \cref{eq:88}
 \begin{equation}
   \label{eq:98}
-  η_{m} = \frac{\abs{κ} πn_{B}}{2c\sqrt{1-Δ^{2}}} \pqty{δ_{m,+}
+  η_{m} = \frac{\abs{κ} πn_{B}}{2c\cos(ψ)} \pqty{δ_{m,+}
     \eu^{\iu ψ} + δ_{m,-}\eu^{-\iu ψ}}.
 \end{equation}
 
-To obtain the \(ω_{γ}\) and \(O_{m,γ}\) we have to diagonalize
+To obtain the \(ω_{γ}\), \(λ_{γ}\) and \(O_{m,γ}\) we have to diagonalize
 \begin{equation}
   \label{eq:99}
   V^{0}_{n,m} + \pqty{ε_{m} -\iu \pqty{η^{0}_{m} + η_{m}} δ_{nm}}.
@@ -1066,7 +1142,7 @@ To obtain the \(ω_{γ}\) and \(O_{m,γ}\) we have to diagonalize
 As
 \begin{equation}
   \label{eq:100}
-  \Im η_{\pm}= \pm \frac{\abs{κ} πn_{B}}{2c\sqrt{1-Δ^{2}}}Δ,
+  \Im η_{\pm}= \pm \frac{\abs{κ} πn_{B}}{2c\cos(ψ)}Δ,
 \end{equation}
 we obtain a correction to the on-site energies \(ε_{\pm}=\pm ε_{A}\),
 whereas
@@ -1074,7 +1150,115 @@ whereas
   \label{eq:101}
   \Re η_{\pm} = \frac{\abs{κ} πn_{B}}{2c}
 \end{equation}
-is independent of \(Δ\) which is consistent with the symmetry of \(η^{0}_{\pm}\).
+is independent of \(Δ\) which is consistent with the symmetry of
+\(η^{0}_{\pm}\). Note however that \cref{eq:100} is of very small
+magnitude as it is the product of two quantities that are small
+compared to \(Ω_{B}\) and \(1\) respectively.
+
+
+In light of \cref{eq:113} we may choose\footnote{The right hand sides
+  denote quantities from the previous set of notes.}
+\begin{gather}
+  \label{eq:114}
+    ε_{+} = ε_{A}- \Im η_{+}= ε_{A} - \frac{\abs{κ}
+      πn_{B}}{2c\cos(ψ)}Δ\\
+    \begin{aligned}
+    ε_{j} &= ω_{j},  & \varphi_{j} &= 0, & \hat{f}_{i}&= \frac{\sqrt{2}}{\hat{J}_{0,i}}η_{j}
+    \end{aligned}
+\end{gather}
+so that \(V^{0}_{n,m}\) most closely resembles the target
+Hamiltonian. The drive phases \(\varphi_{j}\) can also be set to
+\(\varphi_{j}=ϕ + \frac{π}{2}\), to remove the phase in the
+interaction if it is known. The phase in the interaction does not
+influence the observable \(ρ_{A}\). However it does influence the
+interference with a reference light beam.
+
+To calculate the susceptibility (see \cref{eq:87}), we evaluate
+\begin{align}
+  \label{eq:116}
+  U_{γ} &= ∑_{σ=\pm} \eu^{\iu \tilde{ω}_{σ} t}O^{-1}_{γσ}
+  T^{-1}_{σ;S0} =  ∑_{σ=\pm} \frac{σ
+          }{\sqrt{2}\cos(ψ)} \eu^{\iu \pqty{ω_{σ}^{0}-ε_{σ}} t}O^{-1}_{γσ}\\
+  \bar{U}_{γ}&= ∑_{σ=\pm} \eu^{-\iu \pqty{ω_{σ}^{0}-ε_{σ}}
+               t}O_{σγ}T_{S0;σ} = ∑_{σ=\pm} \frac{σ \eu^{\iu σ ψ}}{\sqrt{2}}\eu^{-\iu \pqty{ω_{σ}^{0}-ε_{σ}}t}O_{σγ}
+\end{align}
+with
+\begin{equation}
+  \label{eq:117}
+  \tilde{ω}_{\pm} \equiv ω_{σ}^{0}-ε_{σ} = ω_{S} \pm δ\cos(ψ) - ε_{A}
+  + \frac{\abs{κ}
+    πn_{B}}{2c\cos(ψ)}Δ.
+\end{equation}
+
+Finally we arrive at
+\begin{equation}
+  \label{eq:118}
+  \begin{aligned}
+    χ(t,s) &= χ_{0}Θ(s)
+    ∑_{γ,σ,σ'}\eu^{{-\iu\bqty{\tilde{ω}_{σ}t -
+    \tilde{ω}_{σ'}s + ω_{γ}(t-s)} -
+             λ_{γ}(t-s)}}O_{σ,{γ}}O^{-1}_{γ,σ'}\frac{σ σ' \eu^{\iu σ
+             ψ}}{\cos(ψ)}\\
+    &= θ(s) χ_{1}(t-s) + χ_{2}(t,s).
+  \end{aligned}
+\end{equation}
+where
+\begin{equation}
+  \label{eq:119}
+  χ_{0}=\frac{\abs{κ}π n_{B}}{2c}.
+\end{equation}
+The stationary and non-stationary susceptibilities work out to be
+\begin{align}
+  \label{eq:121}
+  χ_{1}(t) &=  χ_{0}
+    ∑_{γ,σ}\eu^{{-\bqty{\iu\pqty{\tilde{ω}_{σ} + ω_{γ}} +
+             λ_{γ}}t}}O_{σ,{γ}}O^{-1}_{γ,σ'}\frac{\eu^{\iu σ
+             ψ}}{\cos(ψ)}\\
+  χ_{2}(t,s) &= -χ_{0} ∑_{γσ} \eu^{-\bqty{\iu\pqty{\tilde{ω}_{σ} +
+               ω_{γ}} + λ_{γ}}t}  \eu^{\bqty{\iu\pqty{\tilde{ω}_{\bar{σ}} +
+               ω_{γ}} + λ_{γ}}s} O_{σ,{γ}}O^{-1}_{γ,\bar{σ}},
+\end{align}
+where \(\bar{σ}=-σ\). As \(V^{0}_{mn}\) decomposes into two blocks,
+where modes with \(n=-,-1,-2,\dots,-N\) don't couple to modes with
+\(n=+,1,2,\dots,N\) so that we obtain two non-overlapping sets of
+eigenstates, we have
+\begin{equation}
+  \label{eq:122}
+  O_{σ,γ}=0 \wedge O^{-1}_{\bar{σ},γ} =0\; \forall σ=\pm\implies   χ_{2}(t,s) = 0
+\end{equation}
+and the non-stationary contribution to the susceptibility vanishes.
+
+We can now proceed to calculate the response of the system to a
+coherent input beam with frequency \(ω\) in the limit of
+\(t\gg λ_{γ}\)
+\begin{equation}
+  \label{eq:123}
+  ∫_{0}^{t}\eu^{-\iu ω s} χ(t-s)\dd{s} = \eu^{\iu ω t} χ_{0} ∑_{σγ}\frac{O_{σ,{γ}}O^{-1}_{γ,σ'}}{\iu\pqty{\tilde{ω}_{σ} + ω_{γ}-ω} +
+    λ_{γ}}\frac{\eu^{\iu σψ}}{\cos(ψ)}\equiv \eu^{-\iu ω t}T_{S}(ω).
+\end{equation}
+
+Both the magnetic and the electric field are proportional to
+\(\Im b_{\outputf}\) so that the absolute value of the pointing
+vector, e.g. the intensity, averaged over the oscillation period of
+the input light becomes
+\begin{equation}
+  \label{eq:128}
+  \bar{I}  = I_{0}\pqty{1-2\Re{T_{S}(ω)} + \abs{T_{S}(ω)}^{2}} \approx
+  I_{0}\pqty{1-2\Re{T_{S}(ω)}} ,
+\end{equation}
+where we have used \(b_{\inputf}=b_{0}\eu^{-\iu ωt}\).
+
+For \(Δ=0\) we have
+
+\begin{equation}
+  \label{eq:130}
+  \Re{T_{S}(ω)} = χ_{0} ∑_{σγ}\frac{λ_{γ}\abs{O_{σ,γ}}^{2}}{\pqty{\tilde{ω}_{σ} + ω_{γ}-ω}^{2} +
+    λ_{γ}^{2}},
+\end{equation}
+whereas \(Δ\neq 0\) will very slightly shift the peaks and influence
+the peak heights. We also see, that we only have a good signal on the
+states that have some overlap with the small loop. We therefore have
+to attach an additional transmission line to the big loop.
 
 \newpage
 \printbibliography{}
