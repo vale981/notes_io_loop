@@ -698,7 +698,7 @@ where we have set \(g_{β}^{0}=\sqrt{κ}\) and defined
 This also simplifies \cref{eq:64} to
 \begin{equation}
   \label{eq:88}
-  η_{m}=\abs{κ}\frac{πn_{B}}{c}∑_{σ=\pm,β,β'}U_{βm}U^{-1}_{m'β}δ_{\sgn(β),σ} δ_{\sgn(β'),σ}.
+  η_{m}=\abs{κ}\frac{πn_{B}}{c}∑_{σ=\pm,β,β'}U_{βm}U^{-1}_{mβ}δ_{\sgn(β),σ} δ_{\sgn(β'),σ}.
 \end{equation}
 
 Further defining
@@ -1103,7 +1103,7 @@ Comparing \cref{eq:108} with \cref{eq:96} and identifying
   \end{aligned}
 \end{align}
 
-\subsection{Steady-state Transmission on the Small Ring}
+\subsection{Steady-state Transmission on the Small Loop}
 \label{sec:steadyst-transm}
 
 We can now proceed to calculate the steady state transmission for the
@@ -1139,6 +1139,10 @@ To obtain the \(ω_{γ}\), \(λ_{γ}\) and \(O_{m,γ}\) we have to diagonalize
   \label{eq:99}
   V^{0}_{n,m} + \pqty{ε_{m} -\iu \pqty{η^{0}_{m} + η_{m}} δ_{nm}}.
 \end{equation}
+Both apriori loss \(η_{m}^{0}\) and the loss induced by the coupling
+to the transmission line \(η_{m}\), as well as the detunings \(ε_{m}\)
+enter the final interaction hamiltonian.
+
 As
 \begin{equation}
   \label{eq:100}
@@ -1171,7 +1175,10 @@ Hamiltonian. The drive phases \(\varphi_{j}\) can also be set to
 \(\varphi_{j}=ϕ + \frac{π}{2}\), to remove the phase in the
 interaction if it is known. The phase in the interaction does not
 influence the observable \(ρ_{A}\). However it does influence the
-interference with a reference light beam.
+interference with a reference light beam. Also, the magnitude of
+\cref{eq:100} is likely negligible. If it is required, we can
+determine it by choosing \(N=1\) and measuring the eigenenergies with
+the result obtained below.
 
 To calculate the susceptibility (see \cref{eq:87}), we evaluate
 \begin{align}
@@ -1226,7 +1233,9 @@ eigenstates, we have
   \label{eq:122}
   O_{σ,γ}=0 \wedge O^{-1}_{\bar{σ},γ} =0\; \forall σ=\pm\implies   χ_{2}(t,s) = 0
 \end{equation}
-and the non-stationary contribution to the susceptibility vanishes.
+and the non-stationary contribution to the susceptibility
+vanishes. Persistent oscillations in the output intensity therefore
+would likely signal a breakdown of the RWA.
 
 We can now proceed to calculate the response of the system to a
 coherent input beam with frequency \(ω\) in the limit of
@@ -1257,8 +1266,108 @@ For \(Δ=0\) we have
 \end{equation}
 whereas \(Δ\neq 0\) will very slightly shift the peaks and influence
 the peak heights. We also see, that we only have a good signal on the
-states that have some overlap with the small loop. We therefore have
-to attach an additional transmission line to the big loop.
+states that have some overlap with the small loop.
+
+\subsection{Steady-state Transmission on the Big Loop}
+\label{sec:steady-state-transm}
+
+To probe the structure of the states in bath, we have to probe the big
+loop.
+
+Analogous to \cref{sec:steadyst-transm} we can also obtain the
+transmission for a transmission line (inclusive laser) attached to the
+big loop. Note, that the phase \(ϕ\) is now \(ϕ=k_{0}L_{B}/2\),
+whereas all the other model parameters retain their meaning.  The main
+difference to the calculations for the small loop is the number of
+modes that interact with the transmission line, leading to
+non-vanishing stationary (low-frequency) oscillations in the output
+intensity.
+
+Just as in \cref{sec:steadyst-transm}, we begin by identifying the
+relation between the bare modes in the big loop and the eigenmodes of
+the unmodulated system.
+\begin{equation}
+  \label{eq:55}
+  \begin{aligned}
+    T_{i_{0},β;m} &\to T_{B,β;\pm} &\implies U_{β,m}  &= T_{S,0;m} = δ_{β0}
+                                                       \frac{\eu^{\iu ϕ}}{\sqrt{2}}
+                                                       ∑_{σ=\pm} δ_{m,σ}
+    + ∑_{j\neq 0}δ_{βj}δ_{mj}\\
+    && U^{-1}_{m,β} &=
+                      T^{-1}_{m;S,0}=δ_{β,0}\frac{\eu^{-\iu ϕ}}{\sqrt{2}\cos(ψ)}
+                      ∑_{σ=\pm} δ_{m,σ}\eu^{-\iu σ ψ} +∑_{j\neq 0}δ_{βj}δ_{mj}
+  \end{aligned}
+\end{equation}
+where \(j\in [-N,N] \setminus 0\) and \(β\in [-N,N]\).
+
+The decay rate introduced by the coupling to the transmission line
+works out to be
+\begin{equation}
+  \label{eq:71}
+  \begin{aligned}
+    η_{\pm} = \frac{\abs{κ} πn_{B}}{2c\cos(ψ)} \eu^{\mp \iu ψ}
+  \end{aligned}
+\end{equation}
+where the sign in the exponent is \emph{inverted} compared to
+\cref{eq:98}. Therefore the effective on-site energy for the \(\pm\)
+states will be shifted in the inverse direction. Note however, that it
+is not guaranteed that \(κ\), \(η_{S}\), and \(Δ\) will be the same as
+in \cref{sec:steadyst-transm}.
+
+Using the fact that either \(O_{σ,γ}=0\) or \(O^{-1}_{\bar{σ},γ} =0\)
+for any value of \(σ\) we find for the transmission
+\begin{equation}
+  \label{eq:79}
+  T_{B}(ω,t) = θ(s) χ_{0}' ∑_{σ=\pm}\bqty{T^{B}_{σ,σ}(ω) + ∑_{n\neq\pm}\pqty{T^{B}_{σ,n}(ω,t) + T^{B}_{n,σ}(ω,t)} + ∑_{n,m\neq\pm} T^{B}_{σ,m,n}(ω,t)},
+\end{equation}
+with
+\begin{equation}
+  \label{eq:91}
+  \begin{aligned}
+      χ_{0}' &= \abs{κ}\frac{π n_{T}}{c} & \tilde{ω}_{m} = ω^{0}_{m} - ε_{m}
+  \end{aligned}
+\end{equation}
+and
+\begin{align}
+  \label{eq:85}
+  T^{B}_{σ,σ}(ω) &= ∑_{γ}\frac{O_{σ,{γ}}O^{-1}_{γ,σ}\eu^{\iu σψ}}{2\cos(ψ)}\frac{1}{\iu\pqty{\tilde{ω}_{σ} + ω_{γ}-ω} +
+                   λ_{γ}}\\
+  \label{eq:92}
+  T^{B}_{σ,n}(ω,t) &=δ_{σ,\sgn(n)}\frac{O_{σ,{γ}}O^{-1}_{γ,n}\eu^{\iu ϕ}}{\sqrt{2}}
+                                        \frac{\eu^{-\iu(\tilde{ω}_{σ}-\tilde{ω}_{n})t}}{\iu\pqty{\tilde{ω}_{n}+ ω_{γ}-ω} +λ_{γ}}\\
+  \label{eq:102}
+  T^{B}_{n,σ}(ω,t) &= δ_{σ,\sgn(n)}\frac{O_{n,{γ}}O^{-1}_{γ,σ}\eu^{-\iu (ϕ+ψ)}}{\sqrt{2}}
+                                        \frac{\eu^{-\iu(\tilde{ω}_{n}-\tilde{ω}_{σ})t}}{\iu\pqty{\tilde{ω}_{σ}+ ω_{γ}-ω} + λ_{γ}}\\
+  \label{eq:106}
+  T^{B}_{σ,m,n}(ω,t) &= δ_{σ,\sgn(n)} δ_{σ,\sgn(m)}O_{nγ}O^{-1}_{γm} \frac{\eu^{\iu(\tilde{ω}_{m}-\tilde{ω}_{n})t}}{\iu\pqty{\tilde{ω}_{m}+ ω_{γ}-ω} + λ_{γ}}.
+\end{align}
+
+The stationary transmission peaks around \(\tilde{ω}_{\pm}\) and has
+subpeaks shifted by \(ω_{γ}\) just as in \cref{sec:steadyst-transm},
+where the peak height is roughly proportional to the overlap of the
+\(γ\) and \(\pm\) states. In the regime we're interested in, there
+will only be one state with substantial overlap with the \(\pm\)
+states (a.k.a. the \(A\) site). In the same frequency region,
+\cref{eq:102} will also have peaks. Those peaks however will be
+suppressed, as their height is proportional to the overlap of the
+\(\pm\) states and the \(n\neq \pm\), i.e. the \(A\)-site, and bath
+sates with the eigenstate \(γ\). The frequency of the steady state
+oscillations of \cref{eq:102} allows to tune the relative energies of
+the \(A\) sites and the bath site. The same signal may be retrieved
+more cleanly from \cref{eq:92}, where the peaks are situated around
+\(\tilde{ω}_{n}\). The transmission component \cref{eq:106} will only
+be significant if \(m=n\), as the \(γ\) states that don't overlap with
+the \(\pm\) states are almost identical to the \(n\neq\pm\),
+i.e. bath, states. In this case the transmission does not exhibit
+oscillations making the signal from \cref{eq:92} even clearer.
+Comparing \cref{eq:92} and \cref{eq:102}, we can extract the damping
+asymmetry \(Δ = \sin(ψ)\).
+
+Time-averaging \cref{eq:79} leaves us with the stationary transmission
+\begin{equation}
+  \label{eq:110}
+  T_{B}(ω) = θ(s) χ_{0}' ∑_{σ=\pm}\bqty{T^{B}_{σ,σ}(ω) + ∑_{n}T^{B}_{σ,n,n}(ω)}.
+\end{equation}
 
 \newpage
 \printbibliography{}
