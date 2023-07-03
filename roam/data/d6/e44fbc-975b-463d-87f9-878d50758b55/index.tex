@@ -1010,7 +1010,7 @@ With this, we have for \(m=\pm,-N,-N+1,\ldots,-1,1,2,\ldots,N\)
   \label{eq:94}
   \begin{aligned}
     ω^{0}_{m\neq \pm} &= ω_{n}^{B} & ω^{0}_{\pm} &= \pm δ \cos(ψ)\\
-    η^{0}_{m\neq\pm} &= η_{B} = η_S+2δΔ & η^{0}_{\pm} &=  n_{S} + δΔ =
+    η^{0}_{m\neq\pm} &= η_{B} = η_S+2δΔ & η^{0}_{\pm} &=  η_{S} + δΔ =
                                                       \frac{η_{S}+ η_{B}}{2}.
   \end{aligned}
 \end{equation}
@@ -1130,9 +1130,11 @@ Using \cref{sec:effects-asymm-damp}, we identify
 which yields using \cref{eq:88}
 \begin{equation}
   \label{eq:98}
-  η_{m} = \frac{\abs{κ} πn_{B}}{2c\cos(ψ)} \pqty{δ_{m,+}
-    \eu^{\iu ψ} + δ_{m,-}\eu^{-\iu ψ}}.
+  η_{m} = \frac{\abs{κ} πn_{T}}{2c\cos(ψ)} \pqty{δ_{m,+}
+    \eu^{\iu ψ} + δ_{m,-}\eu^{-\iu ψ}},
 \end{equation}
+where \(n_{T}\) is the refractive index of the transmission line
+(replace \(n_{B}\to n_{T}\) in \cref{sec:micr-deriv}).
 
 To obtain the \(ω_{γ}\), \(λ_{γ}\) and \(O_{m,γ}\) we have to diagonalize
 \begin{equation}
@@ -1146,13 +1148,13 @@ enter the final interaction hamiltonian.
 As
 \begin{equation}
   \label{eq:100}
-  \Im η_{\pm}= \pm \frac{\abs{κ} πn_{B}}{2c\cos(ψ)}Δ,
+  \Im η_{\pm}= \pm \frac{\abs{κ} πn_{T}}{2c\cos(ψ)}Δ,
 \end{equation}
 we obtain a correction to the on-site energies \(ε_{\pm}=\pm ε_{A}\),
 whereas
 \begin{equation}
   \label{eq:101}
-  \Re η_{\pm} = \frac{\abs{κ} πn_{B}}{2c}
+  \Re η_{\pm} = \frac{\abs{κ} πn_{T}}{2c}
 \end{equation}
 is independent of \(Δ\) which is consistent with the symmetry of
 \(η^{0}_{\pm}\). Note however that \cref{eq:100} is of very small
@@ -1165,7 +1167,7 @@ In light of \cref{eq:113} we may choose\footnote{The right hand sides
 \begin{gather}
   \label{eq:114}
     ε_{+} = ε_{A}- \Im η_{+}= ε_{A} - \frac{\abs{κ}
-      πn_{B}}{2c\cos(ψ)}Δ\\
+      πn_{T}}{2c\cos(ψ)}Δ\\
     \begin{aligned}
     ε_{j} &= ω_{j},  & \varphi_{j} &= 0, & \hat{f}_{i}&= \frac{\sqrt{2}}{\hat{J}_{0,i}}η_{j}
     \end{aligned}
@@ -1194,7 +1196,7 @@ with
   \label{eq:117}
   \tilde{ω}_{\pm} \equiv ω_{σ}^{0}-ε_{σ} = ω_{S} \pm δ\cos(ψ) - ε_{A}
   + \frac{\abs{κ}
-    πn_{B}}{2c\cos(ψ)}Δ.
+    πn_{T}}{2c\cos(ψ)}Δ.
 \end{equation}
 
 Finally we arrive at
@@ -1305,7 +1307,7 @@ works out to be
 \begin{equation}
   \label{eq:71}
   \begin{aligned}
-    η_{\pm} = \frac{\abs{κ} πn_{B}}{2c\cos(ψ)} \eu^{\mp \iu ψ}
+    η_{\pm} = \frac{\abs{κ} πn_{T}}{2c\cos(ψ)} \eu^{\mp \iu ψ}
   \end{aligned}
 \end{equation}
 where the sign in the exponent is \emph{inverted} compared to
