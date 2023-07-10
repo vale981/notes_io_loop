@@ -70,6 +70,9 @@ frequencies \(ω_{k_β} = c \abs{k_{β}}/n_{A}\), where \(n_{A}\) is the
 refractive index inside the cavity. For simplicity we set \(\hbar
  = 1\) such that time is measured in units of inverse energy.
 
+\subsection{Transformations and Rotating Frames}
+\label{sec:rotating-frames}
+
 The bare \(a_{β}\) modes are linear combinations of the \(c_{m}\) and
 can be related through
 \begin{equation}
@@ -85,24 +88,27 @@ terms from the interaction
   \label{eq:12}
   \tilde{c}(t)_{m} = c_{m}(t)\eu^{\iu ω^{0}_{m}t}  \implies H_{A} \to \tilde{H}_{A}=
   ∑_{mn}V_{mn}(t) \eu^{-\iu t (ω^{0}_{n}-ω^{0}_{m})}
-  \tilde{c}_{m}^†\tilde{c}_{n} \approx ∑_{mn}V^{0}_{mn} \eu^{\iu (ε_{m}-ε_{n})t}\tilde{c}_{m}^†\tilde{c}_{n}.
+  \tilde{c}_{m}^†\tilde{c}_{n} \approx ∑_{mn}V^{0}_{mn} \eu^{\iu (ε_{m}-ε_{n})t}\tilde{c}_{m}^†\tilde{c}_{n},
 \end{equation}
+where \(\abs{ε_{m}-ε_{n}}\ll\abs{ω^{0}_{m} - ω^{0}_{n}}\).
 Upon changing into another rotating frame we can remove this residual
 time dependence
 \begin{equation}
   \label{eq:33}
   h_{n}(t) = \tilde{c}_{n}\eu^{-\iu ε_{n}t} \implies \tilde{H}'_{A} =
-  ∑_{mn}\bqty{V^{0}_{mn} + δ_{mn}ε_{m}} h_{m}^†h_{n}
+  ∑_{mn}\bqty{V^{0}_{mn} + δ_{mn}{ε_{m}-\iu η_{m}}} h_{m}^†h_{n},
 \end{equation}
+where we've added an ad-hock decay rate due to the coupling to the
+transmission line that will be introduced more rigorously later on.
 
 We can subsequently find a unitary transformation that diagonalizes
 the RWA interaction
 \begin{equation}
   \label{eq:30}
-  ∑_{mn}\pqty{O^{†}}_{im}\bqty{V^{0}_{mn} + δ_{mn}ε_{m}}O_{nj} = ω_{j} δ_{ij},
+  ∑_{mn}\pqty{O^{-1}}_{γm}\bqty{V^{0}_{mn} + δ_{mn}\pqty{ε_{m}-\iu η_{m}}}O_{nγ'} = ω_{γ} δ_{γ,γ'}.
 \end{equation}
-where the columns of \(O\) are the normalized eigenvectors of
-\(V_{mn}^{0}=\mel{m}{V^{0}}{n}\). So if \(\ket{ψ_{j}}\) is an
+For \(η_{m}=0\) the columns of \(O\) are the normalized eigenvectors
+of \(V_{mn}^{0}=\mel{m}{V^{0}}{n}\). So if \(\ket{ψ_{j}}\) is an
 eigenvector of \(V\), then \(\braket{i}{ψ_{j}} = O_{ij}\)
 \footnote{This is just a reminder for Valentin who can't seem to keep
   this in his head.}.
@@ -110,14 +116,24 @@ eigenvector of \(V\), then \(\braket{i}{ψ_{j}} = O_{ij}\)
 Transforming the \(h_{m}\) according to
 \begin{equation}
   \label{eq:13}
-  d_{γ} = ∑_{n}O^{\ast}_{nγ}(0) h_{n} = ∑_{n}O^{\ast}_{nγ}(t) \tilde{c}_{n}  \implies \tilde{H}''_{A} = ∑_{γ}ω_{γ} d_{γ}^†d_{γ}
+  d_{γ} = ∑_{n}O^{-1}_{γn}(0) h_{n} = ∑_{n}O^{-1}_{γn}(t) \eu^{-\iu
+    ε_{n}t}\tilde{c}_{n}  \implies \iu \dot{d}_{γ} = ω_{γ}d_{γ}
 \end{equation}
-where
-\begin{equation}
-  \label{eq:35}
-  O^\ast_{nγ}(t)\equiv O^\ast_{nγ}\eu^{-\iu ε_{n}t}
-\end{equation}
-leaves us with a very simple Hamiltonian.
+leaves us with a very simple equation of motion.
+
+
+In summary, the bare modes of the resonators are denoted by
+\(a_{j,α}\) where \(j\) refers to the resonator and \(α\) labels the
+mode within that resonator. The eigenmodes \(c_{m}\) of the coupled
+oscillators obeying \(H_{0}\) are related to the bare modes
+\(α_{j,α}\) by \cref{eq:43}. The eigenmodes in the rotating frame of
+\(H_{0}\) are called \(\tilde{c}_{m}\). The frame in which the
+equations of motion for the modes reflects the target Hamiltonian
+\(\tilde{H}_{A}'\) is given by rotating away the slow-oscillating
+terms in \cref{eq:12} leading to the \(h_{n}\) modes. The resulting
+equations of motion for the \(h_{n}\) can be decoupled by the
+transformation \(O_{mγ}\) giving the eigenmodes of the target
+Hamiltionaion \(d_{γ}\) including damping.
 
 Let us list the relation between the \(a\), \(c\), \(h\) and \(d\) operators
 for later reference
@@ -126,12 +142,14 @@ for later reference
   c_{n} &= \eu^{-\iu
           ω^{0}_{n} t}\tilde{{c}}_{n} = \eu^{-\iu
           (ω^{0}_{n}-ε_{n}) t} h_{n}=  \eu^{-\iu
-          (ω^{0}_{n}) t} ∑_{γ} O_{nγ}(t)d_{γ} \\
+          (ω^{0}_{n}-ε_{n}) t} ∑_{γ} O_{nγ}d_{γ} \\
   a_{β} &= ∑_{m} U_{β,m} c_{m} = ∑_{m} U_{β,m} \tilde{c}_{m}\eu^{-\iu
-          ω^{0}_{m} t} = ∑_{mγ} U_{β,m} \eu^{-\iu
-          ω^{0}_{m} t} O_{mγ}(t)d_{γ}
+          ω^{0}_{m} t} = ∑_{mγ} U_{β,m}O_{mγ} \eu^{-\iu
+          (ω^{0}_{m}-ε_{m}) t} d_{γ}
 \end{align}
 
+\subsection{Coupling to the Transmission Line}
+\label{sec:coupl-transm-line}
 
 The transmission line is considered to only
 have one polarization direction and one dimension of
