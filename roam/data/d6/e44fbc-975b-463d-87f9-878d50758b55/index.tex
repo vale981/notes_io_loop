@@ -84,40 +84,53 @@ that obeys the unitarity relation \(U U^† = \id\).  Transitioning into
 a rotating frame with respect to \(H_{0}\) and employing the rotating
 wave approximation removes all but the slowest-oscillating rotating
 terms from the interaction
-\begin{equation}
+\begin{multline}
   \label{eq:12}
-  \tilde{c}(t)_{m} = c_{m}(t)\eu^{\iu ω^{0}_{m}t}  \implies H_{A} \to \tilde{H}_{A}=
-  ∑_{mn}V_{mn}(t) \eu^{-\iu t (ω^{0}_{n}-ω^{0}_{m})}
-  \tilde{c}_{m}^†\tilde{c}_{n} \approx ∑_{mn}V^{0}_{mn} \eu^{\iu (ε_{m}-ε_{n})t}\tilde{c}_{m}^†\tilde{c}_{n},
-\end{equation}
-where \(\abs{ε_{m}-ε_{n}}\ll\abs{ω^{0}_{m} - ω^{0}_{n}}\).
-Upon changing into another rotating frame we can remove this residual
-time dependence
+  h_{m}(t) = c_{m}(t)\eu^{\iu \pqty{ω^{0}_{m}-ε_{m}}t} \equiv c_{m}(t)\eu^{\iu \tilde{ω}^{0}_{m}t}
+  \\\implies H_{A} \to \tilde{H}_{A}=
+  ∑_{mn}\pqty{V_{mn}(t) + ε_{m}δ_{mn}}  \eu^{\iu t (ω^{0}_{n}-ω^{0}_{m})}\eu^{-\iu
+      (ε_{n}-ε_{m})t}
+  {c}_{m}^†{c}_{n} \approx ∑_{mn}\pqty{V^{0}_{mn}+ ε_{m}δ_{mn}} {h}_{m}^†{h}_{n},
+\end{multline}
+where
+\(\abs{ε_{m}}\ll\abs{ω^{0}_{m}}\)\(\abs{ε_{m}-ε_{n}}\ll\abs{ω^{0}_{m}
+  - ω^{0}_{n}}\) are the detunings of the drive with respect to the
+energy levels of \(H_{0}\). \emph{This constitutes our target
+  Hamiltonian which we can control through the modulation of
+  \(V(t)\).}
+
+Due to the coupling to the transmission line we will find that the
+equation of motion for the \(h_{m}\) becomes non-unitary with a
+damping term
 \begin{equation}
   \label{eq:33}
-  h_{n}(t) = \tilde{c}_{n}\eu^{-\iu ε_{n}t} \implies \tilde{H}'_{A} =
-  ∑_{mn}\bqty{V^{0}_{mn} + δ_{mn}{ε_{m}-\iu η_{m}}} h_{m}^†h_{n},
+  \iu \dot{h}_{m} = ∑_{n}\bqty{V^{0}_{mn} + δ_{mn}{ε_{m}-\iu η_{m}}}h_{n}.
 \end{equation}
-where we've added an ad-hock decay rate due to the coupling to the
-transmission line that will be introduced more rigorously later on.
 
-We can subsequently find a unitary transformation that diagonalizes
+We can subsequently find a (non-unitary) transformation that diagonalizes
 the RWA interaction
 \begin{equation}
   \label{eq:30}
-  ∑_{mn}\pqty{O^{-1}}_{γm}\bqty{V^{0}_{mn} + δ_{mn}\pqty{ε_{m}-\iu η_{m}}}O_{nγ'} = ω_{γ} δ_{γ,γ'}.
+  ∑_{mn}\pqty{O^{-1}}_{γm}\bqty{V^{0}_{mn} + δ_{mn}\pqty{ε_{m}-\iu
+      η_{m}}}O_{nγ'} = \pqty{ω_{γ}-\iu λ_{γ}} δ_{γ,γ'}.
 \end{equation}
 For \(η_{m}=0\) the columns of \(O\) are the normalized eigenvectors
 of \(V_{mn}^{0}=\mel{m}{V^{0}}{n}\). So if \(\ket{ψ_{j}}\) is an
 eigenvector of \(V\), then \(\braket{i}{ψ_{j}} = O_{ij}\)
 \footnote{This is just a reminder for Valentin who can't seem to keep
-  this in his head.}.
+  this in his head.}. For finite \(η_{m}\) we will find that the
+eigenvalues will feature an imaginary part and \(O_{mγ}\) is no longer
+unitary, except for the case where all \(η_{m}\) are the same. This
+situation occurs if there are other dominating sources of loss such
+that the coupling to the transmission line is not a factor or if we
+couple to a sufficiently narrow range of modes so that the variation
+of damping rates becomes negligible.
 
 Transforming the \(h_{m}\) according to
 \begin{equation}
   \label{eq:13}
-  d_{γ} = ∑_{n}O^{-1}_{γn}(0) h_{n} = ∑_{n}O^{-1}_{γn}(t) \eu^{-\iu
-    ε_{n}t}\tilde{c}_{n}  \implies \iu \dot{d}_{γ} = ω_{γ}d_{γ}
+  d_{γ} = ∑_{n}O^{-1}_{γn} h_{n} = ∑_{n}O^{-1}_{γn} \eu^{\iu
+    \tilde{ω}^{0}_{n} t}{c}_{n}  \implies \iu \dot{d}_{γ} = ω_{γ}d_{γ}
 \end{equation}
 leaves us with a very simple equation of motion.
 
@@ -126,27 +139,33 @@ In summary, the bare modes of the resonators are denoted by
 \(a_{j,α}\) where \(j\) refers to the resonator and \(α\) labels the
 mode within that resonator. The eigenmodes \(c_{m}\) of the coupled
 oscillators obeying \(H_{0}\) are related to the bare modes
-\(α_{j,α}\) by \cref{eq:43}. The eigenmodes in the rotating frame of
-\(H_{0}\) are called \(\tilde{c}_{m}\). The frame in which the
-equations of motion for the modes reflects the target Hamiltonian
-\(\tilde{H}_{A}'\) is given by rotating away the slow-oscillating
-terms in \cref{eq:12} leading to the \(h_{n}\) modes. The resulting
-equations of motion for the \(h_{n}\) can be decoupled by the
-transformation \(O_{mγ}\) giving the eigenmodes of the target
-Hamiltionaion \(d_{γ}\) including damping.
+\(α_{j,α}\) by \cref{eq:43}. The frame in which the equations of
+motion for the modes reflects the target Hamiltonian
+\(\tilde{H}_{A}'\) are reached through a transformation into a
+rotating frame in \cref{eq:12} leading to the \(h_{n}\) modes. The
+resulting equations of motion for the \(h_{n}\) can be decoupled by
+the transformation \(O_{mγ}\) giving the eigenmodes of the target
+Hamiltonian \(d_{γ}\) including damping.
+
+It is important to keep in mind that the actual observables are the
+\(α_{β} = α_{i_{0},β}\) which couple to the transmission line.
 
 Let us list the relation between the \(a\), \(c\), \(h\) and \(d\) operators
 for later reference
-\begin{align}
-  \label{eq:15}
-  c_{n} &= \eu^{-\iu
-          ω^{0}_{n} t}\tilde{{c}}_{n} = \eu^{-\iu
-          (ω^{0}_{n}-ε_{n}) t} h_{n}=  \eu^{-\iu
-          (ω^{0}_{n}-ε_{n}) t} ∑_{γ} O_{nγ}d_{γ} \\
-  a_{β} &= ∑_{m} U_{β,m} c_{m} = ∑_{m} U_{β,m} \tilde{c}_{m}\eu^{-\iu
-          ω^{0}_{m} t} = ∑_{mγ} U_{β,m}O_{mγ} \eu^{-\iu
-          (ω^{0}_{m}-ε_{m}) t} d_{γ}
-\end{align}
+\begin{equation}
+  \label{eq:67}
+  \begin{array}{@{}l| c c c c@{}}
+    & α_{β} & c_{m} & h_{n} & d_{γ}\\
+    \midrule
+    a_{β} &   1   &  U_{βm}\equiv  T_{i_{0},β;m}  &  U_{βm}\eu^{-\iu \tilde{ω}^0_mt}  &  ∑_{m}U_{βm}O_{mγ}\eu^{-\iu \tilde{ω}^0_mt}    \\
+    c_{m} &  U^{-1}_{mβ} = U^\ast_{βm}  &  1     &  δ_{mn}\eu^{-\iu \tilde{ω}^0_mt}  &  O_{mγ}\eu^{-\iu \tilde{ω}^0_nt}  \\
+    h_{n} &  U^\ast_{βn}\eu^{\iu \tilde{ω}^0_nt}  &   δ_{nm}\eu^{\iu \tilde{ω}^0_mt}  &  1    &  O_{nγ} \\
+    d_{γ} &  ∑_{m} U^\ast_{βm} O^{-1}_{γm} \eu^{\iu \tilde{ω}^0_mt}   &   O^{-1}_{γn} \eu^{\iu \tilde{ω}^0_mt}  &  O^{-1}_{γm}  &  1.  \\
+  \end{array}
+\end{equation}
+The quantity \(x_{i}\) in each row is obtained from the quantity
+\(y_{j}\) heading each row through the transformation \(A_{ij}(t)\) in
+each cell by \(x_{i} = ∑_{j}A_{ij}(t)y_{j}\).
 
 \subsection{Coupling to the Transmission Line}
 \label{sec:coupl-transm-line}
@@ -271,57 +290,61 @@ to be spaced sufficiently far apart for the RWA to
 apply\footnote{Consider, for example the SSH model where the
   \(k\)-space density can be arbitrarily high depending on the length
   of the chain.}. We therefore work in the frame of the
-\(\tilde{c}_{m}\) and \(\tilde{f}_{ω} = f_{ω}\eu^{\iu \abs{ω}t}\) to
+\(h_{m}\) and \(\tilde{f}_{ω} = f_{ω}\eu^{\iu \abs{ω}t}\) to
 obtain
 \begin{equation}
   \label{eq:10}
   \tilde{H}_{I}= \frac{gΔx}{
     \sqrt{L_{A}}}  ∑_{β,m}∫
   G'_{β}(ω)  \eu^{-\iu
-    (ω^{0}_{m}-\abs{ω}) t}
-  U_{β,m} \tilde{f}_k^†\tilde{c}_{m} \dd{ω} + \hc
+    (\tilde{ω}^{0}_{m}-\abs{ω}) t}
+  U_{β,m} \tilde{f}_k^†h_{m} \dd{ω} + \hc.
 \end{equation}
+
 
 \begin{figure}[H]
   \centering
   {\fontsize{8pt}{1em}
   \input{graphics/rwa_illustr.pdf_tex}}
 \caption{\label{fig:rwa_illustr} In the rotating wave approximation
-  The bare frequencies of the resonator only couple to the
+  the bare frequencies of the resonator only couple to the
   transmission line in frequency sub-intervals
   \([ω_{m}-λ_{m}, ω_{m}+λ_{m}]\).  A second effect that comes into
-  play is the geometrically induced coupling amplitude \(\tilde{G'}_{m}(ω)\),
-  which is visualized around \(ω_{m}\) under the assumption \(ω_{β}
-  \approx ω_{0}^{m}\) for some small range of \(m\).}
+  play is the geometrically induced coupling amplitude
+  \(\tilde{G'}_{m}(ω)\), which is visualized around \(ω_{m}\) under
+  the assumption that all \(G'_{β}\) that enter into
+  \(∑_{β}U_{βm}G'_{β}\) share a similar profile which is a valid
+  assumption in the applications considered \cref{sec:appl-non-mark}.}
 \end{figure}
-For \(g \ll ω_{m}^{0}\) each \(\tilde{c}_{m}\) in \cref{eq:10} only
+For \(g \ll \tilde{ω}_{m}^{0}\) each \(h_{m}\) in \cref{eq:10} only
 interacts with non-overlapping sub-intervals
-\([ω^{0}_{m}-λ_{m}, ω^{0}_{m}+λ_{m}]\) of the transmission frequency axis
-(rotating wave approximation) with \(g\ll λ_{m} \ll ω_{m}^{0}\). This
+\([\tilde{ω}^{0}_{m}-λ_{m}, \tilde{ω}^{0}_{m}+λ_{m}]\) of the transmission frequency axis
+(rotating wave approximation) with \(g\ll λ_{m} \ll \tilde{ω}_{m}^{0}\). This
 situation is illustrated in \cref{fig:rwa_illustr}. Also, the coupling
 amplitude \(G_{β}(ω)\) is local in frequency space and can assist the
 RWA depending on the choice of parameters and how close the
-\(ω^{0}_{m}\) are to the \(ω_{k_{β}}\). We obtain
+\(\tilde{ω}^{0}_{m}\) are to the \(ω_{k_{β}}\), i.e. how local in
+frequency space \(U_{βm}\) is. We obtain
 \begin{equation}
   \label{eq:16}
   \tilde{H}_{I}\approx \frac{gΔx}{
-    \sqrt{L_{A}}}  ∑_{β,m}∫_{ω^{0}_{m}-λ_{m}}^{ω^{0}_{m}+λ_{m}}
+    \sqrt{L_{A}}}  ∑_{β,m}∫_{\tilde{ω}^{0}_{m}-λ_{m}}^{\tilde{ω}^{0}_{m}+λ_{m}}
   \eu^{-\iu
-    (ω^{0}_{m}-\abs{ω}) t}
+    (\tilde{ω}^{0}_{m}-\abs{ω}) t}
   U_{β,m} \pqty{G'_{β}(ω)  \tilde{f}_{ω}^† + G'_{β}(-ω)
-    \tilde{f}_{-ω}^†}\tilde{c}_{m} \dd{ω} + \hc
+    \tilde{f}_{-ω}^†}h_{m} \dd{ω} + \hc
 \end{equation}
 For any finite \(Δx\) and
-\(ω_{0}^{m},ω_{k_{β}}\gg \frac{2πc}{Δx n_{A}}\) we can assume
+\(\tilde{ω}_{0}^{m},ω_{k_{β}}\gg \frac{2πc}{Δx n_{A}}\) we can assume
 \begin{equation}
   \label{eq:44}
   G'_{β}\pqty{-\sgn(β)  ω}\approx 0
 \end{equation}
 in \cref{eq:16}.
 
-As each \(\tilde{c}_{m}\) is now interacting with non-overlapping
+As each \({h}_{m}\) is now interacting with non-overlapping
 transmission-line field modes, we can introduce a separate field for
-each \(\tilde{c}_{m}\) that commutes with all other fields and extend
+each \({h}_{m}\) that commutes with all other fields and extend
 the integration bounds to infinity again\footnote{This is called the
   ``First Markov Approximation'' in \refcite{Gardiner1985}.}.
 Care has to be taken to maintain consistency with \cref{eq:44},
@@ -330,8 +353,8 @@ Care has to be taken to maintain consistency with \cref{eq:44},
   \tilde{H}_{I}= \frac{gΔx}{
     \sqrt{L_{A}}}  ∑_{β,m}∫_{0}^{∞}
   \eu^{-\iu
-    (ω^{0}_{m}-\abs{ω}) t}
-  U_{β,m} G'_{β}(\sgn({β})ω)  \tilde{f}^{m,†}_{\sgn({β})ω}{c}_{m} \dd{ω} + \hc
+    (\tilde{ω}^{0}_{m}-\abs{ω}) t}
+  U_{β,m} G'_{β}(\sgn({β})ω)  \tilde{f}^{m,†}_{\sgn({β})ω}{h}_{m} \dd{ω} + \hc
 \end{equation}
 which becomes\footnote{A lot of discussion for a simple result :).}
 \begin{equation}
@@ -339,39 +362,47 @@ which becomes\footnote{A lot of discussion for a simple result :).}
   H_{I}= ∑_{m}∫_{-∞}^{∞}
   \tilde{G}_{m}(k) {b}^{m,†}_{k}{c}_{m} \dd{k}
 \end{equation}
-upon transitioning out of the rotating frame with \(\tilde{G}_{m}(k) =
+upon transitioning out of the rotating frame with
+\begin{equation}
+  \label{eq:15}
+  \tilde{G}_{m}(k) =
 \frac{gΔx}{
-  \sqrt{L_{A}}}  ∑_{β\gtrless 0}U_{β,m} G_{β}(k)δ_{\sgn(β),\sgn(k)}\). The equation of motion
+  \sqrt{L_{A}}}  ∑_{β\gtrless 0}U_{β,m} G_{β}(k)δ_{\sgn(β),\sgn(k)}
+\end{equation}
+
+The equation of motion
 for the transmission line modes become
 \begin{gather}
   \iu\dot{b}^{m}_{k} = ω^{B}_{k} b_{k}^{m,†} +
-  \tilde{G}_{m}(k) c_{m}\\
+  \tilde{G}_{m}(k) \eu^{-\iu \tilde{ω}^{0}_{m}t}h_{m}\\
     \label{eq:19}
   \implies b^{m}_{k}(t) = b^{m}_{k}(0) \eu^{-\iu ω_{k}^{B}t} -\iu
   \tilde{G}_{m}(k) ∫_{0}^{t}\eu^{-\iu
-    ω_{k}^{B}(t-s)} c_{m}(s)\dd{s}.
+    ω_{k}^{B}(t-s)} \eu^{-\iu ω_{k}^{B}s}h_{m}(s)\dd{s}.
 \end{gather}
-The equation of motion for \(\tilde{c}_{m}\) is
+The equation of motion for \(h_{m}\) is
 \begin{equation}
   \label{eq:21}
-  \iu\dot{\tilde{c}}_{m} = ∑_{n}V^{0}_{mn} \tilde{c}_n +
-  \underbrace{\eu^{\iu ω_{m}^{0}t}∫_{-∞}^{∞}\tilde{G}^\ast_{m}(k)
+  \iu\dot{h}_{m} = ∑_{n}\bqty{V^{0}_{mn} + ε_{m}δ_{nm}}{h}_n +
+  \underbrace{\eu^{\iu \tilde{ω}_{m}^{0}t}∫_{-∞}^{∞}\tilde{G}^\ast_{m}(k)
     b_{k}^{m}(t)\dd{k}}_{\equiv I}.
 \end{equation}
 Further inspection of the rightmost term in \cref{eq:21} yields
 \begin{equation}
   \label{eq:22}
   \begin{aligned}
-    I &= \eu^{\iu ω_{m}^{0}t} ∫_{-∞}^{∞}\tilde{G}^\ast_{m}(k)
+    I &= \eu^{\iu \tilde{ω}_{m}^{0}t} ∫_{-∞}^{∞}\tilde{G}^\ast_{m}(k)
         b_{k}^{m}(t)\dd{k} \\
       &= ∫_{-∞}^{∞}\tilde{G}^\ast_{m}(k)
-        b_{k}^{m}(0)\eu^{-\iu (ω^{B}_{k} - ω^{0}_{m})t}\dd{k} -\iu  ∫_{0}^{t}∫_{-∞}^{∞}\abs{\tilde{G}_{m}(k)}^{2}
-        \tilde{c}_{m}(s)\eu^{-\iu ω^{B}_{k}(t-s)} \eu^{\iu
-        ω^{0}_{m}(t-s)}\dd{k}\dd{s}\\
+        b_{k}^{m}(0)\eu^{-\iu ({ω}^{B}_{k} - \tilde{ω}^{0}_{m})t}\dd{k} -\iu  ∫_{0}^{t}∫_{-∞}^{∞}\abs{\tilde{G}_{m}(k)}^{2}
+        {h}_{m}(s)\eu^{-\iu {ω}^{B}_{k}(t-s)} \eu^{\iu
+        \tilde{ω}^{0}_{m}(t-s)}\dd{k}\dd{s}\\
        &=II + III.
   \end{aligned}
 \end{equation}
-Inspired by the RWA, we now assume
+As the RWA limits the interaction of each \(h_{m}\) to an narrow
+frequency/momentum band, we assume that \(\tilde{G}_{m}\) is
+approximately constant close to the resonance frequencies \([\tilde{ω}^{0}_{m}-λ_{m}, \tilde{ω}^{0}_{m}+λ_{m}]\) 
 \begin{equation}
   \label{eq:23}
   \begin{aligned}
@@ -379,24 +410,21 @@ Inspired by the RWA, we now assume
     δ_{m}\tilde{G}_{m}\pqty{\sgn(k) ω_{m}^{0}\frac{n_{B}}{c n_{A}}} =
     δ_{m}\frac{gΔx}{\sqrt{L_{A}}}∑_{β}U_{βm}G_{β}\pqty{\sgn(k) ω_{m}^{0}\frac{n_{B}}{c
     n_{A}}} δ_{\sgn(β),\sgn(k)} \\
-    &\equiv ∑_{β}g^{0}_{β} U_{βm}δ_{\sgn(β),\sgn(k)} \equiv g_{m, \sgn(k)}
+    &\equiv ∑_{β}g^{0}_{β}\sqrt{ω^{B}_{k}} U_{βm}δ_{\sgn(β),\sgn(k)} \equiv g_{m, \sgn(k)}\sqrt{ω^{B}_{k}} 
   \end{aligned}
 \end{equation}
-in the interval \([ω^{0}_{m}-λ_{m}, ω^{0}_{m}+λ_{m}]\) (see
-\cref{eq:16}) where \(δ_{m}\) is a possible scaling factor to better approximate
-\(\tilde{G}_{m}(k)\) as a constant in \cref{eq:16}.
+in the interval (see \cref{eq:16}) where \(δ_{m}\) is a possible
+scaling factor to better approximate \(\tilde{G}_{m}(k)\) as a
+constant in \cref{eq:16}.
 
-Additionally we resurrect\footnote{Within
-  the RWA this is all equivalent, but I prefer having the input field
-  proportional to the electric field!} the \(ω_{k}^{B}\) dependence of
-\(G_{m}(k)\) in \(I\) to obtain
+Using this in \(I\), we obtain
 \begin{equation}
   \label{eq:24}
   \begin{aligned}
-    II &= \frac{\eu^{\iu ω_{m}^{0}t}}{\sqrt{ω_{m}^{0}}} \bqty{g_{m,+}^\ast ∫_{0}^{∞}\sqrt{ω^{B}_{k}}b^{m}_{k}(0)\eu^{-\iu
+    II &= {\eu^{\iu ω_{m}^{0}t}} \bqty{g_{m,+}^\ast ∫_{0}^{∞}\sqrt{ω^{B}_{k}}b^{m}_{k}(0)\eu^{-\iu
     ω^{B}_{k}t}\dd{k} + g_{m,-}^\ast∫_{-∞}^{0}\sqrt{ω^{B}_{k}}b^{m}_{k}(0)\eu^{-\iu
          ω^{B}_{k}t}\dd{k}}\\
-    &\equiv \frac{\eu^{\iu ω_{m}^{0}t}}{\sqrt{ω_{m}^{0}}}\pqty{
+    &\equiv {\eu^{\iu ω_{m}^{0}t}}\pqty{
       g_{m,+}^\ast b_{\inputf,+}^{m}(t) + g_{m,-}^\ast b_{\inputf,-}^{m}(t)},
   \end{aligned}
 \end{equation}
@@ -405,36 +433,45 @@ right(left)-moving input field and is proportional to the annihilation
 part of the electric field. The second part of \cref{eq:22} becomes
 \begin{equation}
   \label{eq:25}
-  III= -\iu ∫_{0}^{t}\eu^{\iu ω^{0}_{m}(t-s)}\tilde{c}_{m}(s)
-  \bqty{ \abs{g_{m,+}}^{2} ∫_{0}^{∞}\eu^{-\iu ω^{B}_{k}(t-s)} \dd{k} + \abs{g_{m,-}}^{2}  ∫_{-∞}^{0}\eu^{-\iu ω^{B}_{k}(t-s)} \dd{k}}\dd{s}.
+  III= -\iu ∫_{0}^{t}\eu^{\iu \tilde{ω}^{0}_{m}(t-s)}{h}_{m}(s)
+  \bqty{ \abs{g_{m,+}}^{2} ∫_{0}^{∞}ω^{B}_{k}\eu^{-\iu ω^{B}_{k}(t-s)} \dd{k} + \abs{g_{m,-}}^{2}  ∫_{-∞}^{0}ω^{B}_{k}\eu^{-\iu ω^{B}_{k}(t-s)} \dd{k}}\dd{s}.
 \end{equation}
 Now we use the identity
 \begin{equation}
   \label{eq:26}
-  ∫_{0}^{∞}\eu^{-\iu ω^{B}_{k}(t-s)} \dd{k} = \frac{n_{B}}{c}
+  ∫_{0}^{∞}ω^{B}_{k}\eu^{-\iu ω^{B}_{k}(t-s)} \dd{k} = -\iu ∂_{s}\frac{n_{B}}{c}
   \bqty{\mathcal{P}\frac{-i}{t-s} + π δ(t-s)},
 \end{equation}
 but neglect the principal value, as it leads only to rapidly
 oscillating terms that are inconsistent with the RWA, to obtain
 \begin{equation}
   \label{eq:27}
-  III= -2\iu η_{m}∫_{0}^{t}\eu^{\iu ω^{0}_m(t-s)}\tilde{c}_{m}(s)
-  δ(t-s)\dd{s} = -\iu η_{m} \tilde{c}_{m}(t),
+  \begin{aligned}
+    III&= -2\iu η_{m}∫_{0}^{t}\eu^{\iu
+    \tilde{ω}^{0}_m(t-s)}\bqty{\pqty{\tilde{ω}^{0}_{m}+\iu ∂_{s}}\tilde{c}_{m}(s)}
+         δ(t-s)\dd{s}\\
+       &= -\iu η_{m} h_{m}(t) + \frac{η_{m}}{\tilde{ω}^{0}_{m}}
+  \dot{h}_{m}(t) \overset{η_{m}\ll \tilde{ω}_{m}^{0},\, V\ll H_{0}}{\approx}-\iu η_{m} h_{m}(t),
+  \end{aligned}
 \end{equation}
 where the factor \(1/2\) in the last equality stems from the fact that
 we only use half of the delta function and
 \begin{equation}
   \label{eq:45}
-  η_{m}\equiv π\frac{n_{B}}{c}\bqty{\abs{g_{m,-}}^{2}+\abs{g_{m,+}}^{2}}.
+  η_{m}\equiv π\frac{\tilde{ω}^{0}_{m} n_{B}}{c}\bqty{\abs{g_{m,-}}^{2}+\abs{g_{m,+}}^{2}}.
 \end{equation}
+We have also neglected the correction to the eigen-energy
+\(η_{m}/\tilde{ω}^{0}_{m}\) for the same reason we neglected the
+principal value.
+
 Note that \cref{eq:45} is an incoherent sum of the couplings to the
 right moving and left moving fields in the transmission line.
 Altogether we arrive at
 \begin{equation}
   \label{eq:28}
-  \dot{\tilde{c}}_{m} = -\iu\bqty{∑_{n}V^{0}_{mn} \tilde{c}_n +
-    \frac{\eu^{\iu ω_{m}^{0}t}}{\sqrt{ω_{m}^{0}}}
-    ∑_{σ=\pm}g_{m,σ}^\ast b_{\inputf,σ}^{m}(t)} - η_{m}\tilde{c}_{m}.
+  \iu\dot{h}_{m} = {∑_{n}\bqty{V^{0}_{mn} + \pqty{ε_{m}-\iu η_{m}}δ_{nm}}{h}_n +
+    {\eu^{\iu \tilde{ω}_{m}^{0}t}}
+    ∑_{σ=\pm}g_{m,σ}^\ast b_{\inputf,σ}^{m}(t)} .
 \end{equation}
 The usual situation is that \(b^{m}_{\inputf, -} = 0\) and we can
 restrict ourselves to the coupling to the right-moving input field.
@@ -445,13 +482,12 @@ Integrating \cref{eq:19} over all \(k\) yields
 \begin{equation}
   \label{eq:29}
   \begin{aligned}
-    \frac{b_{\outputf}^{m}(x,t)}{\sqrt{ω^{0}_{m}}} &\equiv
-  \frac{1}{\sqrt{ω_{m}^{0}}}∫ \sqrt{ω^{B}_{k}} b_{k}^{m}(t) \eu^{\iu k
+    {b_{\outputf}^{m}(x,t)} &\equiv
+  ∫ \sqrt{ω^{B}_{k}} b_{k}^{m}(t) \eu^{\iu k
                                                      t}\dd{k}\\
-    &=
-  \frac{1}{\sqrt{ω_{m}^{0}}} b_{\inputf}^{m}(x, t) -\iu
-      g_{m,\sgn(x)}\frac{π n_{B}}{c}
-      \tilde{c}_{m}(τ(x,t))\eu^{-i ω^{0}_{m}τ(x,t)}Θ(τ(x,t)),
+    &= b_{\inputf}^{m}(x, t) -\iu
+      g_{m,\sgn(x)}\frac{\tilde{ω}^{0}_{m}π n_{B}}{c}
+      {h}_{m}(τ(x,t))\eu^{-i \tilde{ω}^{0}_{m}τ(x,t)}Θ(τ(x,t)),
   \end{aligned}
 \end{equation}
 which is the input-output relation with the retarded time
@@ -469,11 +505,12 @@ the time argument is properly retarded. We defined
 used that
 \begin{equation}
   \label{eq:42}
-  ∫_{0}^{∞}\eu^{-\iu ω^{B}_{k}(t-s)}\eu^{\pm\iu k x} \dd{k} =
-  \frac{n_{B}}{c}
+  ∫_{0}^{∞}ω^{B}_{k}\eu^{-\iu ω^{B}_{k}(t-s)}\eu^{\pm\iu k x} \dd{k} =
+  -\iu ∂_{s}\frac{n_{B}}{c}
   \bqty{\mathcal{P}\frac{-i}{t-s \pm \frac{x n_{B}}{c}} + π δ\pqty{t-s\mp
-    \frac{x n_{B}}{c}}}.
+    \frac{x n_{B}}{c}}},
 \end{equation}
+along with similar arguments to the above.
 
 The case of \(x=0\) is recovered by defining
 \begin{equation}
@@ -483,7 +520,7 @@ The case of \(x=0\) is recovered by defining
 which amounts to taking half of each delta function in
 \cref{eq:42}. It shall be noted, that it is physical to assume
 \(x>0\), as we necessarily measure outside the fibre-coupler between
-transmission line and resonator. By neglecting the \(k\)-depnedence of
+transmission line and resonator. By neglecting the \(k\)-dependence of
 the coupling in \cref{eq:23} through invocation of the RWA we have
 effectively ignored length \(Δx\), but to maintain consistency with
 \cref{eq:44} we should assume it to be finite.
@@ -496,14 +533,15 @@ first diagonalize \(V^{0}_{mn} + δ_{mn}\pqty{ε_{m}-i η_{m}}\)
 \begin{equation}
   \label{eq:65}
   V^{0}_{mn} + δ_{mn}\pqty{ε_{m}-i η_{m}} \to ∑_{γγ'}
-  δ_{γγ'}(ω_{γ}-\iu \tilde{n}_{γ})
+  δ_{γγ'}(ω_{γ}-\iu λ_{γ})
 \end{equation}
-to obtain \(O_{mγ}(t)\) and find
+using the transformation \(O_{nγ}\) (see \cref{sec:rotating-frames})
+and find
 \begin{equation}
   \label{eq:32}
-  \dot{d}_{γ} = ∑_{m}\pqty{O^{-1}(t)}_{γm}\dot{\tilde{c}}_{m} =
-  -\iu\bqty{\pqty{ω_{γ} - \iu \tilde{η}_{γ}}d_{γ} +
-    ∑_{σ=\pm}∑_{m}\pqty{O^{-1}(t)}_{γm}\frac{g_{m,σ}^\ast }{\sqrt{ω_{m}^{0}}} \eu^{\iu ω_{m}^{0}t}
+  \dot{d}_{γ} = ∑_{m}O^{-1}_{γm}\dot{h}_{m} =
+  -\iu\bqty{\pqty{ω_{γ} - \iu λ_{γ}}d_{γ} +
+    ∑_{σ=\pm}∑_{m}\pqty{O^{-1}}_{γm}{g_{m,σ}^\ast } \eu^{\iu \tilde{ω}_{m}^{0}t}
     b_{\inputf,σ}^{m}(t)}.
 \end{equation}
 
@@ -511,11 +549,11 @@ We now introduce some additional simplifications beginning with
 equating all input fields \(b_{\inputf}^{m}\). This is allowed, as we
 will transition to the classical picture later, where the commutation
 relations do not matter. We also assume that we're working in a region
-in \(m\) space, where the \(g_{β}^{0}\approx \sqrt{κ}\) and
-\(\sqrt{ω^{0}_{m}}\approx\sqrt{ω_{0}}\), where \(ω_{0}\) is a typical
+in \(m\) space, where the \(\sqrt{ω_{0}}g_{β}^{0}\approx \sqrt{κ}\) and
+\(\tilde{ω}^{0}_{m}\approx{ω_{0}}\), where \(ω_{0}\) is a typical
 frequency in the input field, can be assumed to be approximately
 constant. With these considerations in mind we can simplify
-\cref{eq:32} to
+\cref{eq:45,eq:32} to
 \begin{equation}
   \label{eq:64}
   η_{m}=\abs{κ}\frac{πn_{B}}{c}∑_{σ=\pm,β,β'}U_{βm}U^\ast_{β'm}δ_{\sgn(β),σ} δ_{\sgn(β'),σ}
@@ -524,9 +562,9 @@ and
 \begin{gather}
   \label{eq:34}
   \dot{d}_{γ} =
-  -\iu\bqty{\pqty{ω_{γ}-\iu \tilde{η}_{γ}}d_{γ} + \sqrt{κ^\ast} ∑_{σ=\pm}
-    U^{σ}_{γ}(t) \frac{b_{\inputf}(t)}{\sqrt{ω_{0}}}}\\
-  U^{σ}_{γ}(t) = ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}\pqty{O^{-1}(t)}_{γm} \eu^{\iu ω_{m}^{0}t}= ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}\pqty{O^{-1}}_{γm}\eu^{\iu (ω_{m}^{0}-ε_{m})t}.
+  -\iu\bqty{\pqty{ω_{γ}-\iu λ_{γ}}d_{γ} + \sqrt{κ^\ast} ∑_{σ=\pm}
+    U^{σ}_{γ}(t) {b_{\inputf}(t)}}\\
+  U^{σ}_{γ}(t) = ∑_{m,β} δ_{\sgn({β}),σ}U^\ast_{βm}\pqty{O^{-1}}_{γm}\eu^{\iu \tilde{ω}_{m}^{0}t}.
 \end{gather}
 
 These simplifications still capture the essence of the physics, as
@@ -535,14 +573,14 @@ demonstrated in the current long-range SSH experiment.
 We can now proceed to integrate \cref{eq:34} to obtain
 \begin{equation}
   \label{eq:36}
-  d_{γ}(t)= d_{γ}(0) \eu^{-\pqty{\iu ω_{γ} + \tilde{η}_{γ}}t} -
+  d_{γ}(t)= d_{γ}(0) \eu^{-\pqty{\iu ω_{γ} + {λ}_{γ}}t} -
   \frac{i}{\sqrt{κ}} Σ_{σ=\pm} ∫_{0}^{t}χ_{γ}(t-s) U^{σ}_{γ}(s)
-  \frac{b_{\inputf,σ}(t)}{\sqrt{ω_{0}}}\dd{s}
+  {b_{\inputf,σ}(t)}\dd{s}
 \end{equation}
 with
 \begin{equation}
   \label{eq:37}
-  χ_{γ}(t) = \abs{κ} \eu^{-\pqty{\iu ω_{γ} + \tilde{η}_{γ}}t}.
+  χ_{γ}(t) = \abs{κ} \eu^{-\pqty{\iu ω_{γ} + λ_{γ}}t}.
 \end{equation}
 
 When constructing the total output field, we have to remember how the
@@ -559,8 +597,8 @@ whole copy of the input field.
 This leads us to
 \begin{equation}
   \label{eq:38}
-  \frac{b_{\outputf}(x,t)}{\sqrt{ω_{0}}} \equiv
-  \frac{1}{\sqrt{ω_{0}}} b_{\inputf}(x, t) -i  θ(τ(x,t)) \frac{\sqrt{κ}πn_{B}}{c}
+  {b_{\outputf}(x,t)} \equiv
+  b_{\inputf}(x, t) -i  θ(τ(x,t)) \frac{\sqrt{κ} πn_{B}}{c}
   ∑_{γ}\bqty{U^{\sgn(x)}_{γ}\pqty{τ(x,t)}}^\ast d_{γ}(τ(x,t))
 \end{equation}
 
@@ -585,7 +623,8 @@ position \(x>0\) we have
   \ev{{b_{\outputf}(x>0,t)}} =
   \ev{b_{\inputf}(x,t)} -∫_{0}^{τ(x,t)}χ_{++}(τ(x,t),s) \ev{b_{\inputf}(s)} \dd{s}.
 \end{equation}
-with \(b_{\inputf}(s) = b_{\inputf,+}(s) + b_{\inputf,-}(s) = b_{\inputf,+}(s)\).
+with \(b_{\inputf}(s) = b_{\inputf,+}(s) + b_{\inputf,-}(s) =
+b_{\inputf,+}(s)\). 
 
 \subsection{Langevin-Equations for Lossy Oscillators}
 \label{sec:lang-equat-lossy}
@@ -644,7 +683,7 @@ terms and express everything in terms of the \(c_{m}\) using
 \(T\). Subsequently, we change into a rotating frame
 \begin{equation}
   \label{eq:66}
-  \tilde{c}_{m} = c_{m}\eu^{\iu ω^{0}_{m}t},
+  h_{m} = c_{m}\eu^{\iu \tilde{ω}^{0}_{m}t},
 \end{equation}
 rotating away only the unitary evolution. Applying the rotating wave
 and first Markov approximations works out precisely as in
@@ -660,34 +699,25 @@ replacements along the way
   \tilde{G}^\ast_{m}(k) &\rightarrow\tilde{G}^{-1}_{m}(k) = \frac{g^\astΔx}{\sqrt{L_{A}}} ∑_{β} U^{-1}_{mβ}
                           G^\ast_{β}(k) δ_{\sgn(β),\sgn(k)}\\
   g_{m,σ}&\rightarrow g_{m,σ}=∑_{β}g^{0}_{β} U_{βm}δ_{\sgn(β),σ}\\
-  g^\ast_{m,σ}&\rightarrow g^{-1}_{m,σ}=∑_{β}\pqty{g^{0}_{β}}^\ast U^{-1}_{mβ}δ_{\sgn(β),σ}\\
+  g^\ast_{m,σ}&\rightarrow \bar{g}_{m,σ}=∑_{β}\pqty{g^{0}_{β}}^\ast U^{-1}_{mβ}δ_{\sgn(β),σ}\\
 \end{align}
 which gives us
 \begin{align}
   \label{eq:72}
-  η_{m}=\frac{π n_{B}}{c} ∑_{σ} g_{mσ}g^{-1}_{mσ},
+  η_{m}=\frac{\tilde{ω}_{m}^{0}π n_{B}}{c} ∑_{σ} g_{mσ}\bar{g}_{mσ},
 \end{align}
 which might have an imaginary part.
 
 This leaves us with
 \begin{equation}
   \label{eq:73}
-  \dot{\tilde{c}}_{m}= -\iu\bqty{∑_{n}V^{0}_{mn}\eu^{\iu
-      \pqty{ε_{m}-ε_{n}}t} \tilde{c}_{n} + \frac{\eu^{\iu ω^{0}_{m}t}}{\sqrt{ω^{0}_{m}}}∑_{σ=\pm}g_{mσ}^{-1}b_{\inputf,σ}^{m}}  - \pqty{η_{m} +
-    η_{m}^{0}}\tilde{c}_{m}.
+  \iu\dot{h}_{m} = {∑_{n}\Bqty{V^{0}_{mn} + \bqty{ε_{m}-\iu \pqty{η_{m} +
+    η_{m}^{0}}}δ_{nm}}{h}_n +
+    {\eu^{\iu \tilde{ω}_{m}^{0}t}}
+    ∑_{σ=\pm}\bar{g}_{m,σ} b_{\inputf,σ}^{m}(t)},
 \end{equation}
-To remove the residual explicit time dependence in \cref{eq:73} we
-define
-\begin{equation}
-  \label{eq:75}
-  h_{m}=\tilde{c}_{m}\eu^{-\iu ε_{m}t}
-\end{equation}
-and find
-\begin{equation}
-  \label{eq:76}
-  \dot{h}_{m}= -\iu\bqty{∑_{n}\Bqty{V^{0}_{mn}+ \bqty{ε_{m}-\iu
-      \pqty{η_{m}^{0}+η_{m}}}δ_{nm}}h_{m}} + \frac{\eu^{\iu \pqty{ω^{0}_{m}-ε_{m}}t}}{\sqrt{ω^{0}_{m}}}∑_{σ=\pm}g_{mσ}^{-1}b_{\inputf,σ}^{m}.
-\end{equation}
+where the \(η_{m}\) might shift the energies \(ε_{m}\)
+slightly. 
 
 Diagonalizing
 \begin{equation}
@@ -698,20 +728,19 @@ Diagonalizing
 and defining
 \begin{equation}
   \label{eq:78}
-  d_{γ} = ∑_{n}O^{-1}_{γn}h_{n} = ∑_{n}O^{-1}_{γn}\eu^{-\iu
-    ε_{n}t}\tilde{c}_{n}\implies h_{n}=∑_{γ}\eu^{\iu ε_{n}t}O_{nγ}d_{γ}
+  d_{γ} = ∑_{n}O^{-1}_{γn}h_{n} \implies h_{n}=∑_{γ}O_{nγ}d_{γ}
 \end{equation}
 will give us the equivalent of \cref{eq:32}
 \begin{equation}
   \label{eq:80}
-  \dot{d}_{γ}=-\iu\pqty{ω_{γ}+\sqrt{κ^\ast}∑_{σ=\pm}U^{σ}_{γ}\frac{b_{\inputf,σ}}{\sqrt{ω_{0}}}}d_{γ}
+  \dot{d}_{γ}=-\iu\pqty{ω_{γ}+\sqrt{κ^\ast}∑_{σ=\pm}U^{σ}_{γ}{b_{\inputf,σ}}}d_{γ}
   - λ_{γ}d_{γ}
 \end{equation}
-where we have set \(g_{β}^{0}=\sqrt{κ}\) and defined
+where we have set \(\sqrt{ω_{0}}g_{β}^{0}=\sqrt{κ}\) and defined
 \begin{equation}
   \label{eq:82}
   U^{σ}_{γ} =
-  ∑_{mβ}\eu^{\iu\pqty{ω^{0}_{m}-ε_{m}}t}O^{-1}_{γm}U^{-1}_{mβ}δ_{\sgn(β),σ}.
+  ∑_{mβ}\eu^{\iu\tilde{ω}^0_mt}O^{-1}_{γm}U^{-1}_{mβ}δ_{\sgn(β),σ}.
 \end{equation}
 This also simplifies \cref{eq:64} to
 \begin{equation}
@@ -722,7 +751,7 @@ This also simplifies \cref{eq:64} to
 Further defining
 \begin{align}
   \label{eq:83}
-  \bar{U}^{σ}_{γ}&=∑_{mβ}\eu^{-\iu\pqty{ω^{0}_{m}-ε_{m}}t}O_{mγ}U_{βm}δ_{\sgn(β),σ}\qq{and}&
+  \bar{U}^{σ}_{γ}&=∑_{mβ}\eu^{-\iu\tilde{ω}^0_mt}O_{mγ}U_{βm}δ_{\sgn(β),σ}\qq{and}&
   χ_{γ}&=\abs{κ}\eu^{-\pqty{\iu ω_{γ}+λ_{γ}}t},
 \end{align}
 we obtain
@@ -740,7 +769,20 @@ input fields
 
 These equations are essentially the same as \cref{eq:39,eq:40},
 accounting for the non-unitary transformations and the apriori decay
-rates when diagonalizing the equations of motion for the \(\tilde{c}_{m}\).
+rates when diagonalizing the equations of motion for the \(h_{m}\).
+
+For completeness, we give the equivalent of \cref{eq:67} for the non-unitary case
+\begin{equation}
+  \label{eq:35}
+  \begin{array}{@{}l| c c c c@{}}
+    & α_{β} & c_{m} & h_{n} & d_{γ}\\
+    \midrule
+    a_{β} &   1   &  U_{βm}\equiv  T_{i_{0},β;m}  &  U_{βm}\eu^{-\iu \tilde{ω}^0_mt}  &  ∑_{m}U_{βm}O_{mγ}\eu^{-\iu \tilde{ω}^0_mt}    \\
+    c_{m} &  U^{-1}_{mβ}\equiv  T^{-1}_{m;i_{0},β} &  1     &  δ_{mn}\eu^{-\iu \tilde{ω}^0_mt}  &  O_{mγ}\eu^{-\iu \tilde{ω}^0_nt}  \\
+    h_{n} &  U^{-1}_{nβ}\eu^{\iu \tilde{ω}^0_nt}  &   δ_{nm}\eu^{\iu \tilde{ω}^0_mt}  &  1    &  O_{nγ} \\
+    d_{γ} &  ∑_{m} U^{-1}_{mβ} O^{-1}_{γm} \eu^{\iu \tilde{ω}^0_mt}   &   O^{-1}_{γn} \eu^{\iu \tilde{ω}^0_mt}  &  O^{-1}_{γm}  &  1  \\
+  \end{array}.
+\end{equation}
 
 \section{Application to the Non-Markovian Quantum Walk}
 \label{sec:appl-non-mark}
