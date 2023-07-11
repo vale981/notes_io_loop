@@ -68,7 +68,7 @@ length of the cavity/resonator that hosts the electric field.  The
 modes have wave numbers \(k_{β} = 2πβ/L_{A}\) for \(β \in \ZZ\) and
 frequencies \(ω_{k_β} = c \abs{k_{β}}/n_{A}\), where \(n_{A}\) is the
 refractive index inside the cavity. For simplicity we set \(\hbar
- = 1\) such that time is measured in units of inverse energy.
+ = 1\) such that energy is measured in units of frequency.
 
 \subsection{Transformations and Rotating Frames}
 \label{sec:rotating-frames}
@@ -145,14 +145,16 @@ mode within that resonator. The eigenmodes \(c_{m}\) of the coupled
 oscillators obeying \(H_{0}\) are related to the bare modes
 \(α_{j,α}\) by \cref{eq:43}. The frame in which the equations of
 motion for the modes reflects the target Hamiltonian
-\(\tilde{H}_{A}'\) are reached through a transformation into a
+\(H^{T}\) are reached through a transformation into a
 rotating frame in \cref{eq:12} leading to the \(h_{n}\) modes. The
 resulting equations of motion for the \(h_{n}\) can be decoupled by
 the transformation \(O_{mγ}\) giving the eigenmodes of the target
 Hamiltonian \(d_{γ}\) including damping.
 
 It is important to keep in mind that the actual observables are the
-\(α_{β} = α_{i_{0},β}\) which couple to the transmission line.
+\(α_{β} = α_{i_{0},β}\) which couple to the transmission line, wheras
+the modes in the rotating frame \(h_{n}\) correspond to the amplitudes
+that evolve according to the target Hamiltonian.
 
 Let us list the relation between the \(a\), \(c\), \(h\) and \(d\) operators
 for later reference
@@ -841,7 +843,8 @@ where \(X=S,B\).
     modulation through the EOM to give us an effectively
     time-independent target Hamiltonian \(H^{T}_{mn}\). Diagonalizing
     this Hamiltonian gives us the energies \(ω_{λ}\) that we can
-    detect when measuring the transmission (Green).}
+    detect when measuring the transmission (Green). Damping terms have
+    been left out of the picture for simplicity.}
 \end{figure}
 These loops are coupled to each other with amplitude \(δ\eu^{\iu ϕ}\) which can
 possibly contain a phase due to the choice of the coordinate
@@ -1065,7 +1068,7 @@ To account for this, we modify \cref{eq:51} to
   \begin{aligned}
     H_{A}= ω_{s}a_{S,0}^†a_{S,0} &+ ∑_{n=-N}^{N} ω_{n}^{B}a_{B,n}^†a_{B,n} + δ \pqty{\eu^{\iu
                                    ϕ}a_{B,0}^†a_{S,0} + \eu^{-\iu ϕ}a_{S,0}^†a_{B,0}} + ∑_{mn}J_{mn}(t) a_{B,m}^†a_{B,n}
-    \\&- \iu a_{S,0}^†a_{S,0}η_{S} a^†a - \iu \pqty{η_{S}+2Δδ} ∑_{n}a_{B,n}^†a_{B,n}
+    \\&- \iu η_{S}a_{S,0}^†a_{S,0}  - \iu \pqty{η_{S}+2Δδ} ∑_{n}a_{B,n}^†a_{B,n}
   \end{aligned}
 \end{equation}
 with the damping rates \(η_{S}\) and the damping asymmetry
@@ -1113,6 +1116,8 @@ With this, we have for \(m=\pm,-N,-N+1,\ldots,-1,1,2,\ldots,N\)
                                                       \frac{η_{S}+ η_{B}}{2}.
   \end{aligned}
 \end{equation}
+Note that the eigenenergies of the \(\pm\) modes are slightly shifted. 
+
 Next, we compute the transformation of the interaction
 \(T^{-1}VT\) (see \cref{eq:74}) and find
 \begin{equation}
@@ -1127,6 +1132,9 @@ Next, we compute the transformation of the interaction
 \end{equation}
 Evidently, the matrix \(T^{-1}VT\) is not hermitian except in the
 limit \(Δ\to 0\).
+
+In all of the above one can set \(\cos(ψ)=1\) to only account for
+\(Δ\) in leading order.
 
 
 \subsection{Rotating-Wave Interaction}
@@ -1149,14 +1157,14 @@ Let us now assume that the voltage modulation takes the form of
       \pqty{\hat{ω}_{j}+\hat{δ}_{j}}t}\eu^{-\iu \varphi_{j}}}.
 \end{equation}
 
-Transforming into the rotating frame of the \(\tilde{c}_{m}\) (see
+Transforming into the rotating frame of the \({h}_{m}\) (see
 \cref{eq:66}), we have
 \begin{equation}
   \label{eq:105}
   \tilde{V}_{mn}=-\iu ∑_{j}\hat{V}_{mn}\hat{f}_{i}\bqty{\eu^{i \pqty{\hat{ω_{j}} +\hat{δ}_{j} -
-        \pqty{ω^{0}_{n}-ω^{0}_{m}}}t} \eu^{\iu \varphi_{j}}
+        \pqty{ω^{0}_{n}-ω^{0}_{m} + ε_{m}-ε_{n}}}t} \eu^{\iu \varphi_{j}}
     - \eu^{-i \pqty{\hat{ω_{j}} +
-        \hat{δ}_{j}+\pqty{ω^{0}_{n}-ω^{0}_{m}}}t} \eu^{-\iu \varphi_{j}}}.
+        \hat{δ}_{j}+\pqty{ω^{0}_{n}-ω^{0}_{m} + ε_{m}-ε_{n}}}t} \eu^{-\iu \varphi_{j}}}.
 \end{equation}
 
 As discussed in \cref{sec:choice-hybridization}, we want to couple the
@@ -1294,7 +1302,7 @@ To calculate the susceptibility (see \cref{eq:87}), we evaluate
 with
 \begin{equation}
   \label{eq:117}
-  \tilde{ω}_{\pm} \equiv ω_{σ}^{0}-ε_{σ} = ω_{S} \pm δ\cos(ψ) - ε_{A}
+  \tilde{ω}^0_{\pm} \equiv ω_{σ}^{0}-ε_{σ} = ω_{S} \pm δ\cos(ψ) - ε_{A}
   + \frac{\abs{κ}
     πn_{T}}{2c\cos(ψ)}Δ.
 \end{equation}
@@ -1304,8 +1312,8 @@ Finally we arrive at
   \label{eq:118}
   \begin{aligned}
     χ(t,s) &= χ_{0}Θ(s)
-    ∑_{γ,σ,σ'}\eu^{{-\iu\bqty{\tilde{ω}_{σ}t -
-    \tilde{ω}_{σ'}s + ω_{γ}(t-s)} -
+    ∑_{γ,σ,σ'}\eu^{{-\iu\bqty{\tilde{ω}^0_{σ}t -
+    \tilde{ω}^0_{σ'}s + ω_{γ}(t-s)} -
              λ_{γ}(t-s)}}O_{σ,{γ}}O^{-1}_{γ,σ'}\frac{σ σ' \eu^{\iu σ
              ψ}}{\cos(ψ)}\\
     &= θ(s) χ_{1}(t-s) + χ_{2}(t,s).
@@ -1320,11 +1328,11 @@ The stationary and non-stationary susceptibilities work out to be
 \begin{align}
   \label{eq:121}
   χ_{1}(t) &=  χ_{0}
-    ∑_{γ,σ}\eu^{{-\bqty{\iu\pqty{\tilde{ω}_{σ} + ω_{γ}} +
+    ∑_{γ,σ}\eu^{{-\bqty{\iu\pqty{\tilde{ω}^0_{σ} + ω_{γ}} +
              λ_{γ}}t}}O_{σ,{γ}}O^{-1}_{γ,σ}\frac{\eu^{\iu σ
              ψ}}{\cos(ψ)}\\
-  χ_{2}(t,s) &= -χ_{0} ∑_{γσ} \eu^{-\bqty{\iu\pqty{\tilde{ω}_{σ} +
-               ω_{γ}} + λ_{γ}}t}  \eu^{\bqty{\iu\pqty{\tilde{ω}_{\bar{σ}} +
+  χ_{2}(t,s) &= -χ_{0} ∑_{γσ} \eu^{-\bqty{\iu\pqty{\tilde{ω}^0_{σ} +
+               ω_{γ}} + λ_{γ}}t}  \eu^{\bqty{\iu\pqty{\tilde{ω}^0_{\bar{σ}} +
                ω_{γ}} + λ_{γ}}s} O_{σ,{γ}}O^{-1}_{γ,\bar{σ}},
 \end{align}
 where \(\bar{σ}=-σ\). As \(V^{0}_{mn}\) decomposes into two blocks,
@@ -1344,8 +1352,8 @@ coherent input beam with frequency \(ω\) in the limit of
 \(t\gg λ_{γ}\)
 \begin{equation}
   \label{eq:123}
-  ∫_{0}^{t}\eu^{-\iu ω s} χ(t-s)\dd{s} = \eu^{\iu ω t} χ_{0} ∑_{σγ}\frac{O_{σ,{γ}}O^{-1}_{γ,σ}}{\iu\pqty{\tilde{ω}_{σ} + ω_{γ}-ω} +
-    λ_{γ}}\frac{\eu^{\iu σψ}}{\cos(ψ)}\equiv \eu^{-\iu ω t}T_{S}(ω).
+  ∫_{0}^{t}\eu^{-\iu ω s} χ(t-s)\dd{s} = \eu^{\iu ω t} χ_{0} ∑_{σγ}\frac{O_{σ,{γ}}O^{-1}_{γ,σ}}{\iu\pqty{\tilde{ω}^0_{σ} + ω_{γ}-ω} +
+    λ_{γ}}\frac{\eu^{\iu σψ}}{\cos(ψ)}\equiv \eu^{-\iu ω t}F_{S}(ω).
 \end{equation}
 
 Both the magnetic and the electric field are proportional to
@@ -1354,21 +1362,30 @@ vector, e.g. the intensity, averaged over the oscillation period of
 the input light becomes
 \begin{equation}
   \label{eq:128}
-  \bar{I}  = I_{0}\pqty{1-2\Re{T_{S}(ω)} + \abs{T_{S}(ω)}^{2}} \approx
-  I_{0}\pqty{1-2\Re{T_{S}(ω)}} ,
+  \bar{I}  = I_{0}\pqty{1-2\Re{F_{S}(ω)} + \abs{F_{S}(ω)}^{2}} \approx
+  I_{0}\pqty{1-2\Re{F_{S}(ω)}} ,
 \end{equation}
 where we have used \(b_{\inputf}=b_{0}\eu^{-\iu ωt}\).
 
 For \(Δ=0\) we have
-
 \begin{equation}
   \label{eq:130}
-  \Re{T_{S}(ω)} = χ_{0} ∑_{σγ}\frac{λ_{γ}\abs{O_{σ,γ}}^{2}}{\pqty{\tilde{ω}_{σ} + ω_{γ}-ω}^{2} +
+  \Re{F_{S}(ω)} = χ_{0} ∑_{σγ}\frac{λ_{γ}\abs{O_{σ,γ}}^{2}}{\pqty{\tilde{ω}^0_{σ} + ω_{γ}-ω}^{2} +
     λ_{γ}^{2}},
 \end{equation}
-whereas \(Δ\neq 0\) will very slightly shift the peaks and influence
-the peak heights. We also see, that we only have a good signal on the
-states that have some overlap with the small loop.
+whereas \(Δ\neq 0\) will very slightly shift the peak locations and
+influence the peak heights. We also see, that we only have a good
+signal on the states that have some overlap with the small loop. The
+locations of the peaks (dips in the transmission) are the eigenenrgies
+\(ω_{γ}\) of the target Hamiltonian \(H^{T}\) relative to the
+eigenenrgies of the unmodulated system and the drive detunings
+\(\tilde{ω}^0_{σ}=ω^{0}_{σ}-ε_{σ}\). Wheras the \(ω^{0}_{σ}\) define
+the ``zero'' of energy, the shifts by \(ε_{σ}\) can be interpreted as
+an effect similar to the AC stark shift that arises due to the drive
+detuning. Another effect of the drive, namely persistent oscillations
+of the output intensity, is not observed here, as we don't couple the
+\(σ=\pm\) states with the drive.  Finally, the peak heights and widths are
+controlled by the loss rates \(λ_{γ}\).
 
 \subsection{Steady-state Transmission on the Big Loop}
 \label{sec:steady-state-transm}
