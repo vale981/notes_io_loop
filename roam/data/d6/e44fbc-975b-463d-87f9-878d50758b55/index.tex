@@ -97,7 +97,11 @@ where
   - ω^{0}_{n}}\) are the detunings of the drive with respect to the
 energy levels of \(H_{0}\). \emph{This constitutes our target
   Hamiltonian which we can control through the modulation of
-  \(V(t)\).}
+  \(V(t)\)}
+\begin{equation}
+  \label{eq:109}
+  H^{T}_{mn}= {V^{0}_{mn} + δ_{mn}{ε_{m}-\iu η_{m}}}.
+\end{equation}
 
 Due to the coupling to the transmission line we will find that the
 equation of motion for the \(h_{m}\) becomes non-unitary with a
@@ -469,7 +473,8 @@ right moving and left moving fields in the transmission line.
 Altogether we arrive at
 \begin{equation}
   \label{eq:28}
-  \iu\dot{h}_{m} = {∑_{n}\bqty{V^{0}_{mn} + \pqty{ε_{m}-\iu η_{m}}δ_{nm}}{h}_n +
+  \iu\dot{h}_{m} = {∑_{n}\underbrace{\bqty{V^{0}_{mn} +
+        \pqty{ε_{m}-\iu η_{m}}δ_{nm}}}_{\equiv H^{T}_{mn}}{h}_n +
     {\eu^{\iu \tilde{ω}_{m}^{0}t}}
     ∑_{σ=\pm}g_{m,σ}^\ast b_{\inputf,σ}^{m}(t)} .
 \end{equation}
@@ -799,11 +804,7 @@ loops do have the free spectral ranges
   \end{aligned}
 \end{equation}
 where \(n\) is the refractive index of the respective fibres.
-\begin{figure}[htp]
-  \centering
-  \includegraphics{walker_setup}
-  \caption{\label{fig:schematic}Schematic of the experimental setup.}
-\end{figure}
+
 Attaching the transmission line to the smaller loop has the advantage
 that we only excite and detect what we will later identify as the
 \(A\) level of the non-Markovian quantum walk in momentum space.
@@ -826,6 +827,22 @@ to \(ω_{s}\) so that
 \end{equation}
 where \(X=S,B\).
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{walker_setup}
+  \caption{\label{fig:schematic}Schematic of the experimental setup
+    and the different frames that the input-output theory deals
+    with. Two fibre loops \(B\) (Big) and \(S\) (small) are being
+    coupled with strength \(δ\).  The golden parts correspond to the
+    bare modes (\(ω_{m}^{B},ω_{s}\)) being coupled to form the
+    eigenmodes with frequencies \(ω_{m}^{0}\) of the composite \(B+S\)
+    system. We then transition into a rotating frame (Blue) with
+    respect to \(H_{0}\) and the \(ω^{0}_{m}\) and consider a
+    modulation through the EOM to give us an effectively
+    time-independent target Hamiltonian \(H^{T}_{mn}\). Diagonalizing
+    this Hamiltonian gives us the energies \(ω_{λ}\) that we can
+    detect when measuring the transmission (Green).}
+\end{figure}
 These loops are coupled to each other with amplitude \(δ\eu^{\iu ϕ}\) which can
 possibly contain a phase due to the choice of the coordinate
 origin. Let us now assume that
@@ -872,6 +889,28 @@ and obtain
 where the index \(n\) can take on the values in
 \(\pqty{[-N,N]\setminus \{0\}} \cap \{+, -\}\). The spectra of the
 coupled and uncoupled systems are visualized in \cref{fig:spectra}.
+
+
+Upon transitioning into the rotating frame and applying the RWA we
+arrive at a target Hamiltonian
+\begin{equation}
+  \label{eq:111}
+  H^{T}_{nm}=V^{0}_{n,m} + \pqty{ε_{m} -\iu \pqty{η^{0}_{m} + η_{m}}
+    δ_{nm}},
+\end{equation}
+where we can control the \(V^{0}_{n,m}\) through the drive amplitudes
+and the \(ε_{m}\) through the drive
+detunings.
+
+The choice of \(δ\) will be discussed in
+\cref{sec:choice-hybridization} and the origin of the \(η^{0}_{m}\),
+as well as the effects of asymmetric loss in the two loops are
+investigated in \cref{sec:effects-asymm-damp}.
+\Cref{sec:rotat-wave-inter} is concerned with relating the
+\(V^{0}_{nm}\) with the drive amplitudes, frequencies and phases,
+whereas \cref{sec:steadyst-transm,sec:steady-state-transm} will deal
+with the transmission through transmission lines attached to either
+the small or the big loop.
 
 \tikzmath{
   \Nmodes = 5;
@@ -1196,10 +1235,11 @@ which yields using \cref{eq:88}
 where \(n_{T}\) is the refractive index of the transmission line
 (replace \(n_{B}\to n_{T}\) in \cref{sec:micr-deriv}).
 
-To obtain the \(ω_{γ}\), \(λ_{γ}\) and \(O_{m,γ}\) we have to diagonalize
+To obtain the \(ω_{γ}\), \(λ_{γ}\) and \(O_{m,γ}\) we have to
+diagonalize the target Hamiltonian
 \begin{equation}
   \label{eq:99}
-  V^{0}_{n,m} + \pqty{ε_{m} -\iu \pqty{η^{0}_{m} + η_{m}} δ_{nm}}.
+  H^{T}_{nm}=V^{0}_{n,m} + \pqty{ε_{m} -\iu \pqty{η^{0}_{m} + η_{m}} δ_{nm}}.
 \end{equation}
 Both apriori loss \(η_{m}^{0}\) and the loss induced by the coupling
 to the transmission line \(η_{m}\), as well as the detunings \(ε_{m}\)
